@@ -10,7 +10,10 @@ const Form = ({ children, onSubmit, disabled, className }) => (
 );
 
 Form.propTypes = {
-
+  children: PropTypes.node.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  disabled: PropTypes.bool,
+  className: PropTypes.string,
 };
 
 export default Form;

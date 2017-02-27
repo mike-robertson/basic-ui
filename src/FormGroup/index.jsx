@@ -20,7 +20,8 @@ const FormGroup = ({ children, className }) => (
 );
 
 FormGroup.propTypes = {
-
+  children: PropTypes.node,
+  className: PropTypes.string,
 };
 
 export default FormGroup;

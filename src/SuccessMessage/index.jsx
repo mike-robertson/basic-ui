@@ -72,7 +72,8 @@ class SuccessMessage extends Component {
 }
 
 SuccessMessage.propTypes = {
-
+  message: PropTypes.string,
+  flag: PropTypes.bool,
 };
 
 export default SuccessMessage;

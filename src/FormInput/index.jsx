@@ -53,7 +53,13 @@ class FormInput extends PureComponent {
 }
 
 FormInput.propTypes = {
-
+  tag: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  onChange: PropTypes.func.isRequired,
+  label: PropTypes.string,
+  type: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]),
+  className: PropTypes.string,
+  placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]),
 };
 
 export default FormInput;

@@ -28,7 +28,9 @@ const Container = ({ title, className, children }) => (
 );
 
 Container.propTypes = {
-
+  title: PropTypes.string,
+  className: PropTypes.string,
+  children: PropTypes.node,
 };
 
 export default Container;

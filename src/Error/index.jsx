@@ -20,7 +20,9 @@ const Error = ({ error, message, className }) => error && (
 );
 
 Error.propTypes = {
-
+  error: PropTypes.object,
+  message: PropTypes.string,
+  className: PropTypes.string,
 };
 
 export default Error;
