@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 
-import Button from 'Button';
+import Button from './Button';
 import classnames from 'classnames';
-import jss from 'basic-jss';
+import jss from './basic-jss';
 
 const { classes } = jss.createStyleSheet({
   container: {

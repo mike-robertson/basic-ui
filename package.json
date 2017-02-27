@@ -1,8 +1,8 @@
 {
   "name": "basic-ui",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "A react component library of basic ui components with various themes.",
-  "main": "lib",
+  "main": "lib/",
   "scripts": {
     "build": "rm -rf lib && eslint . --ext .js --ext .jsx && babel src --out-dir lib",
     "start": "webpack-dev-server",
@@ -11,7 +11,8 @@
     "lint": "eslint . --ext .js,.jsx",
     "lint:fix": "eslint . --ext .js,.jsx --fix",
     "api": "nodemon --watch mockApi.js -- mockApi.js",
-    "webpack": "NODE_ENV=production webpack -p --bail"
+    "webpack": "NODE_ENV=production webpack -p --bail",
+    "postinstall": "mv lib/* ./ && rm -rf lib"
   },
   "repository": {
     "type": "git",

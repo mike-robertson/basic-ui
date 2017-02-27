@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
-import jss from 'basic-jss';
+import jss from './basic-jss';
 
 const { classes } = jss.createStyleSheet({
   container: {

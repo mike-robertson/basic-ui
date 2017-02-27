@@ -1,8 +1,8 @@
 import React, { PureComponent, PropTypes } from 'react';
 import classnames from 'classnames';
 import uuid from 'uuid/v4';
-import jss from 'basic-jss';
-import * as palette from 'palette';
+import jss from './basic-jss';
+import * as palette from './palette';
 
 const { classes } = jss.createStyleSheet({
   container: {

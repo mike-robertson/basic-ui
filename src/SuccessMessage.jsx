@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
-import jss from 'basic-jss';
-import * as palette from 'palette';
+import jss from './basic-jss';
+import * as palette from './palette';
 
 const { classes } = jss.createStyleSheet({
   container: {
