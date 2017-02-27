@@ -9,6 +9,7 @@ const { classes } = jss.createStyleSheet({
     '& > fieldset': {
       border: 'none',
       padding: 0,
+      margin: 0,
       '&:disabled input': {
         backgroundColor: palette.colorMuted,
         '&:hover': {
