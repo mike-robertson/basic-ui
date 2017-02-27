@@ -6,22 +6,24 @@ import jss from './basic-jss';
 
 const { classes } = jss.createStyleSheet({
   fieldset: {
-    border: 'none',
-    padding: 0,
-    '&:disabled input': {
-      backgroundColor: palette.colorMuted,
-      '&:hover': {
+    '& > fieldset': {
+      border: 'none',
+      padding: 0,
+      '&:disabled input': {
         backgroundColor: palette.colorMuted,
-        borderColor: palette.colorMutedLight,
-        cursor: 'not-allowed',
+        '&:hover': {
+          backgroundColor: palette.colorMuted,
+          borderColor: palette.colorMutedLight,
+          cursor: 'not-allowed',
+        },
       },
     },
   },
 }).attach();
 
 const Form = ({ children, onSubmit, disabled, className }) => (
-  <form onSubmit={onSubmit} className={classnames(className)}>
-    <fieldset className={classes.fieldset} disabled={disabled && 'disabled'}>
+  <form onSubmit={onSubmit} className={classnames(classes.fieldset, className)}>
+    <fieldset disabled={disabled && 'disabled'}>
       {children}
     </fieldset>
   </form>
