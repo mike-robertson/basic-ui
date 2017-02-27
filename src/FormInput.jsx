@@ -15,7 +15,7 @@ const { classes } = jss.createStyleSheet({
     outline: 'none',
     backgroundColor: palette.colorBlackLight,
     color: palette.textColorPrimary,
-    border: `2px solid ${palette.colorMutedLight}`,
+    border: palette.border,
     padding: 5,
     fontSize: 16,
     transition: 'all ease-out 300ms',

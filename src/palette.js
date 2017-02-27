@@ -16,3 +16,6 @@ export const textColorPrimary = '#F5F5F5';
 export const primaryTextColor = '#F5F5F5';
 export const textColorSecondary = '#212020';
 export const secondaryTextColor = '#212020';
+
+export const border = `1px solid ${colorMutedLight}`;
+export const borderDanger = `1px solid ${colorDangerTrans}`;

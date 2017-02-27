@@ -9,7 +9,7 @@ const { classes } = jss.createStyleSheet({
     fontSize: 16,
     backgroundColor: palette.colorBlackLight,
     color: palette.textColorPrimary,
-    border: `2px solid ${palette.colorMutedLight}`,
+    border: palette.border,
     cursor: 'pointer',
     padding: '5px 15px',
     transition: 'all ease-out 300ms',

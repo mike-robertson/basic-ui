@@ -6,7 +6,7 @@ import * as palette from './palette';
 const { classes } = jss.createStyleSheet({
   container: {
     padding: 15,
-    border: `2px solid ${palette.colorDangerTrans}`,
+    border: palette.borderDanger,
     color: palette.colorDanger,
     display: 'flex',
     maxWidth: 350,
