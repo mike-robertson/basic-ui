@@ -1,3 +1,7 @@
 node_modules
 lib
 webpack.config.js
+styleguide.config.js
+dev
+*.flow
+flow-typed

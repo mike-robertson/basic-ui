@@ -1,4 +1,5 @@
 {
+  "parser": "babel-eslint",
   "parserOptions": {
     "ecmaFeatures": { "experimentalObjectRestSpread": true }
   },
@@ -8,25 +9,38 @@
     "mocha": true
   },
   "plugins": [
-    "import"
+    "import",
+    "flowtype"
   ],
   "settings": {
     "import/resolver": {
       "webpack": { "config": "./webpack.config.js" }
+    },
+    "flowtype": {
+      "onlyFilesWithFlowAnnotation": true
     }
   },
   "globals": {
     "API_HOST": true,
     "STORE_HOST": true
   },
-  "extends": "airbnb",
+  "extends": [
+    "airbnb",
+    "plugin:flowtype/recommended"
+  ],
   "rules": {
     "arrow-parens": ["error", "as-needed"],
     "max-len": ["error", 150],
+    "no-confusing-arrow": 0,
     "no-shadow": 0,
     "no-param-reassign": 1,
     "react/prefer-stateless-function": [2, { "ignorePureComponents": true }],
-    "react/prop-types": 0,
+    "react/prop-types": 2,
+    "react/sort-comp": [2, {
+      "order": [
+        "type-annotations"
+      ]
+    }],
     "import/named": 2,
     "import/no-dynamic-require": 0,
     "import/prefer-default-export": 0,
@@ -40,6 +54,62 @@
     "react/forbid-prop-types": [2, { "forbid": ["any"] }],
     "no-mixed-operators": ["error", {
       "allowSamePrecedence": true
-    }]
+    }],
+    "flowtype/boolean-style": [
+      2,
+      "boolean"
+    ],
+    "flowtype/define-flow-type": 1,
+    "flowtype/delimiter-dangle": [
+      2,
+      "always"
+    ],
+    "flowtype/generic-spacing": [
+      2,
+      "never"
+    ],
+    "flowtype/no-primitive-constructor-types": 2,
+    "flowtype/no-weak-types": 0,
+    "flowtype/object-type-delimiter": [
+      2,
+      "comma"
+    ],
+    "flowtype/require-parameter-type": 2,
+    "flowtype/require-return-type": [
+      2,
+      "always",
+      {
+        "annotateUndefined": "never",
+        "excludeArrowFunctions": "expressionsOnly"
+      }
+    ],
+    "flowtype/require-valid-file-annotation": 2,
+    "flowtype/semi": [
+      2,
+      "always"
+    ],
+    "flowtype/space-after-type-colon": [
+      2,
+      "always"
+    ],
+    "flowtype/space-before-generic-bracket": [
+      2,
+      "never"
+    ],
+    "flowtype/space-before-type-colon": [
+      2,
+      "never"
+    ],
+    "flowtype/type-id-match": [
+      2,
+      "^([A-Z][a-z0-9]+)+Type$"
+    ],
+    "flowtype/union-intersection-spacing": [
+      2,
+      "always"
+    ],
+    "flowtype/require-parameter-type": [2, { "excludeArrowFunctions": true }],
+    "flowtype/use-flow-type": 1,
+    "flowtype/valid-syntax": 1
   }
 }

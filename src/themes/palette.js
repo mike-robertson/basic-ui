@@ -1,0 +1,39 @@
+export const textColorPrimary = '#212020';
+export const textColorSecondary = '#F5F5F5';
+
+export const colorSuccess = 'rgba(102, 187, 106, 1)';
+export const colorSuccessTrans = 'rgba(102, 187, 106, 0.9)';
+
+export const colorDanger = 'rgba(255, 76, 76, 1)';
+export const colorDangerTrans = 'rgba(255, 76, 76, 0.9)';
+
+export const warningColor = '#FCA326';
+// export const warningColor = '#FCA326';
+
+/* -------------- Interactive -------------------- */
+
+export const interactiveBGC = 'rgba(0, 0, 0, 0)';
+// export const interactiveBGC = '#343232';
+
+export const interactiveHoverBorderColor = textColorPrimary;
+export const interactiveHoverColor = textColorPrimary;
+export const interactiveHoverBGC = 'rgba(0, 0, 0, 0.2)';
+// export const interactiveHoverBGC = '#005499';
+
+// export const interactiveFocusBorderColor = 'rgb(102, 187, 255)';
+// export const interactiveFocusBorderColor = 'rgb(0, 84, 153)';
+// export const interactiveFocusBGC = 'rgba(102, 187, 255, 0.2)';
+// export const interactiveFocusColor = 'rgb(0, 84, 153)';
+
+export const interactiveActiveBGC = textColorPrimary;
+/* ------------- End Interactive ------------------ */
+
+export const colorMuted = '#727272';
+export const colorMutedLight = '#B3B3B3';
+
+
+export const border = `0.2em solid ${textColorPrimary}`;
+export const borderDanger = `0.2em solid ${colorDangerTrans}`;
+export const borderSuccess = `0.2em solid ${colorSuccessTrans}`;
+
+export const buttonPadding = '1em 3em';

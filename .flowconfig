@@ -1,0 +1,8 @@
+[ignore]
+<PROJECT_ROOT>/node_modules/findup/test/.*
+[libs]
+flow-typed
+types
+node_modules/jss/flow-typed
+[options]
+unsafe.enable_getters_and_setters=true
