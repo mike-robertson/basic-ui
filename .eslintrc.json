@@ -35,7 +35,7 @@
     "no-shadow": 0,
     "no-param-reassign": 1,
     "react/prefer-stateless-function": [2, { "ignorePureComponents": true }],
-    "react/prop-types": 2,
+    "react/prop-types": 1,
     "react/sort-comp": [2, {
       "order": [
         "type-annotations"

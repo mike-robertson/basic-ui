@@ -6,6 +6,8 @@ import palette from '../themes';
 
 const styles = {
   fieldset: {
+    width: 'fit-content',
+
     '& > fieldset': {
       border: 'none',
       padding: 0,
@@ -17,6 +19,15 @@ const styles = {
           borderColor: palette.colorMutedLight,
           cursor: 'not-allowed',
         },
+      },
+
+      '& > *': {
+        marginBottom: '1em',
+      },
+
+      '& input[type=submit]': {
+        width: '100%',
+        alignSelf: 'flex-end',
       },
     },
   },

@@ -12,6 +12,9 @@ const styles = {
     alignItems: 'flex-start',
     justifyContent: 'flex-end',
   },
+  centerText: {
+    textAlign: 'center',
+  },
   input: {
     outline: 'none',
     backgroundColor: palette.interactiveBGC,
@@ -37,6 +40,7 @@ class FormInput extends PureComponent {
     className: string,
     placeholder: string | number | boolean,
     classes: Object,
+    center: boolean,
   };
 
   constructor() {
@@ -45,7 +49,7 @@ class FormInput extends PureComponent {
   }
 
   render(): React.Element<any> {
-    const { tag, onChange, label, type = 'text', value, className, placeholder, classes } = this.props;
+    const { tag, onChange, label, type = 'text', value, className, placeholder, classes, center } = this.props;
     const Tag = tag || 'input';
     const isInput = Tag === 'input' || Tag === 'textarea';
     return (
@@ -57,7 +61,7 @@ class FormInput extends PureComponent {
           type={type}
           onChange={onChange}
           placeholder={placeholder}
-          className={classnames(classes.container, isInput && !className && classes.input, className)}
+          className={classnames(center && classes.centerText, isInput && !className && classes.input, className)}
         />
       </div>
     );
@@ -73,6 +77,7 @@ FormInput.propTypes = {
   className: PropTypes.string,
   placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]),
   classes: PropTypes.object,
+  center: PropTypes.bool,
 };
 
 export default injectSheet(styles)(FormInput);

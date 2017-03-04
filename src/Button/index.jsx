@@ -16,6 +16,9 @@ const styles = {
     transition: 'all ease-out 300ms',
     textTransform: 'uppercase',
     fontWeight: 700,
+    justifyContent: 'center',
+    display: 'flex',
+    textAlign: 'center',
 
     '&:hover': {
       backgroundColor: palette.interactiveHoverBGC,

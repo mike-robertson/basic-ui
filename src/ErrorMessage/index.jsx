@@ -9,7 +9,7 @@ const styles = {
     border: palette.borderDanger,
     color: palette.colorDanger,
     display: 'flex',
-    maxWidth: 350,
+    justifyContent: 'center',
   },
 };
 

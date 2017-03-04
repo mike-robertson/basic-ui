@@ -9,6 +9,7 @@ const FormSubmit = ({ text, className }) => (
     tag={FormInput}
     value={text}
     type="submit"
+    center
   />
 );
 
