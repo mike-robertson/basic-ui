@@ -2,6 +2,6 @@ declare type TextInputProps = {
   className: string,
   label: number,
   value: string | number | boolean,
-  onChange: void,
+  onChange: string,
   placeholder: string,
 }

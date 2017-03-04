@@ -28,6 +28,16 @@ const styles = {
 
 class FormInput extends PureComponent {
   id: string;
+  props: {
+    tag: string | () => void,
+    onChange: () => void,
+    label: string,
+    type: string,
+    value: string | boolean | number,
+    className: string,
+    placeholder: string | number | boolean,
+    classes: Object,
+  };
 
   constructor() {
     super();
