@@ -1,24 +1,37 @@
+// @flow
+
 import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
 import injectSheet from 'react-jss';
 
-import palette from '../themes';
-import Button from '../Button';
+import theme from '../themes';
+import ExpandableContainerHeader from '../ExpandableContainerHeader';
 
 const styles = {
   container: {
     position: 'relative',
-    color: palette.textColorPrimary,
-  },
-  toggleButton: {
-    position: 'absolute',
-    right: 0,
-    top: 10,
+    color: theme.palette.textColorPrimary,
   },
 };
 
+type PropsType = {
+  initialShowValue: boolean,
+  showFlagName: string,
+  className: string,
+  classes: Object,
+  children: any,
+  header: React.Element<any>,
+};
+
 export class ExpandableContainer extends Component {
-  constructor(props) {
+  state: {
+    show: boolean,
+    noRender: boolean,
+  };
+  props: PropsType;
+  handleOnClick: () => void
+
+  constructor(props: PropsType) {
     super();
     this.state = {
       show: props.initialShowValue,
@@ -35,8 +48,8 @@ export class ExpandableContainer extends Component {
     });
   }
 
-  render() {
-    const { className, showFlagName, classes } = this.props;
+  render(): React.Element<any> {
+    const { className, showFlagName, classes, header } = this.props;
     const { show, noRender } = this.state;
     const childrenWithShow = React.Children.map(
       this.props.children,
@@ -48,15 +61,11 @@ export class ExpandableContainer extends Component {
         },
       ),
     );
+    const headerWithClickAndShow = React.cloneElement(header, { onClick: this.handleOnClick, open: show });
     return (
       <div className={classnames(className, classes.container)}>
+        {headerWithClickAndShow}
         {childrenWithShow}
-        <Button
-          className={classes.toggleButton}
-          onClick={this.handleOnClick}
-        >
-          {show ? 'Hide' : 'Show'}
-        </Button>
       </div>
     );
   }
@@ -70,10 +79,27 @@ ExpandableContainer.propTypes = {
 const ExpandableContainerWithClasses = injectSheet(styles)(ExpandableContainer);
 export default ExpandableContainerWithClasses;
 
+type ExpandableContainerComponentsType = {
+  Component: ReactClass<any>,
+  Header: ReactClass<any>,
+};
+
+type ExpandableContainerOptionsType = {
+  show: boolean,
+  showFlagName: string,
+};
+
 export const withExpandableContainer =
-  (Component, { show = false, showFlagName = 'show' } = { showFlagName: 'show', show: false }) =>
-    props => (
-      <ExpandableContainerWithClasses initialShowValue={show} showFlagName={showFlagName}>
+  (
+    { Component, Header = ExpandableContainerHeader }: ExpandableContainerComponentsType,
+    { show = false, showFlagName = 'show' }: ExpandableContainerOptionsType = { showFlagName: 'show', show: false },
+  ) =>
+    ({ headerProps, ...props }: { headerProps: any, props: PropsType }) => (
+      <ExpandableContainerWithClasses
+        initialShowValue={show}
+        showFlagName={showFlagName}
+        header={<Header {...headerProps} />}
+      >
         <Component {...props} />
       </ExpandableContainerWithClasses>
     );

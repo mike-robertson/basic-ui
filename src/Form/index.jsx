@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 import injectSheet from 'react-jss';
 
-import palette from '../themes';
+import theme from '../themes';
 
 const styles = {
   fieldset: {
@@ -13,10 +13,10 @@ const styles = {
       padding: 0,
       margin: 0,
       '&:disabled input': {
-        backgroundColor: palette.colorMuted,
+        backgroundColor: theme.palette.colorMuted,
         '&:hover': {
-          backgroundColor: palette.colorMuted,
-          borderColor: palette.colorMutedLight,
+          backgroundColor: theme.palette.colorMuted,
+          borderColor: theme.palette.colorMutedLight,
           cursor: 'not-allowed',
         },
       },

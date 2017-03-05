@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 import injectSheet from 'react-jss';
-import palette from '../themes';
+import theme from '../themes';
 
 const styles = {
   container: {
@@ -9,7 +9,7 @@ const styles = {
     padding: '15px 0',
     display: 'flex',
     flexDirection: 'column',
-    color: palette.textColorPrimary,
+    color: theme.palette.textColorPrimary,
 
     '& > *': {
       margin: '15px 0',

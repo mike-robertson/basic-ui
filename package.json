@@ -1,11 +1,11 @@
 {
   "name": "basic-ui",
-  "version": "0.1.0",
+  "version": "0.1.4",
   "description": "A react component library of basic ui components with various themes.",
   "main": "lib/",
   "scripts": {
-    "build": "rm -rf lib && npm run lint && npm run flow && babel src --out-dir lib",
-    "start": "webpack-dev-server",
+    "build": "rm -rf lib && babel src --out-dir lib",
+    "start": "npm run styleguide-server",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . --ext .js,.jsx",
     "lint:fix": "eslint . --ext .js,.jsx --fix",

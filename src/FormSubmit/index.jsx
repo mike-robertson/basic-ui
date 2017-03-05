@@ -2,28 +2,28 @@ import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 import injectSheet from 'react-jss';
 
-import palette from '../themes';
+import theme from '../themes';
 
 import Button from '../Button';
 import FormInput from '../FormInput';
 
 const styles = {
   button: {
-    borderColor: palette.submitFocusBorderColor,
-    color: palette.submitFocusBorderColor,
+    borderColor: theme.palette.submitFocusBorderColor,
+    color: theme.palette.submitFocusBorderColor,
 
     '&:hover': {
-      borderColor: palette.submitFocusBorderColor,
-      color: palette.submitFocusBorderColor,
-      backgroundColor: palette.submitFocusBackgroundColor,
-    },
-
-    '&:active': {
-      backgroundColor: palette.submitFocusBorderColor,
+      borderColor: theme.palette.submitFocusBorderColor,
+      color: theme.palette.submitFocusBorderColor,
+      backgroundColor: theme.palette.submitFocusBackgroundColor,
     },
 
     '&:focus': {
-      backgroundColor: palette.submitFocusBackgroundColor,
+      backgroundColor: theme.palette.submitFocusBackgroundColor,
+    },
+
+    '&:active': {
+      backgroundColor: theme.palette.submitFocusBorderColor,
     },
   },
 };

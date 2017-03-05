@@ -1,15 +1,15 @@
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 import injectSheet from 'react-jss';
-import palette from '../themes';
+import theme from '../themes';
 
 const styles = {
   container: {
     display: 'inline',
-    color: palette.textColorPrimary,
+    color: theme.palette.textColorPrimary,
   },
   loading: {
-    color: palette.colorMuted,
+    color: theme.palette.colorMuted,
   },
 };
 

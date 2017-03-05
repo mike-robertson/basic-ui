@@ -3,7 +3,7 @@ import React, { PureComponent, PropTypes } from 'react';
 import classnames from 'classnames';
 import { v4 as uuid } from 'uuid';
 import injectSheet from 'react-jss';
-import palette from '../themes';
+import theme from '../themes';
 
 const styles = {
   container: {
@@ -14,10 +14,10 @@ const styles = {
     justifyContent: 'flex-end',
 
     '& > label': {
-      color: palette.textColorPrimary,
+      color: theme.palette.textColorPrimary,
       textTransform: 'uppercase',
       order: -5,
-      transition: palette.transition,
+      transition: theme.palette.transition,
     },
   },
   centerText: {
@@ -25,17 +25,17 @@ const styles = {
   },
   input: {
     outline: 'none',
-    backgroundColor: palette.interactiveBGC,
-    color: palette.textColorPrimary,
-    border: palette.border,
+    backgroundColor: theme.palette.interactiveBGC,
+    color: theme.palette.textColorPrimary,
+    border: theme.palette.border,
     padding: '0.4em',
     fontSize: '1.2em',
-    transition: palette.transition,
+    transition: theme.palette.transition,
     '&:focus': {
-      borderColor: palette.interactiveFocusBorderColor,
+      borderColor: theme.palette.interactiveFocusBorderColor,
     },
     '&:focus ~ label': {
-      color: palette.interactiveFocusBorderColor,
+      color: theme.palette.interactiveFocusBorderColor,
     },
   },
 };

@@ -2,18 +2,18 @@
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 import injectSheet from 'react-jss';
-import palette from '../themes';
+import theme from '../themes';
 
 const styles = {
   container: {
     outline: 'none',
     fontSize: 16,
-    backgroundColor: palette.interactiveBGC,
-    color: palette.textColorPrimary,
-    border: palette.border,
+    backgroundColor: theme.palette.interactiveBGC,
+    color: theme.palette.textColorPrimary,
+    border: theme.palette.border,
     cursor: 'pointer',
-    padding: palette.buttonPadding,
-    transition: palette.transition,
+    padding: theme.palette.buttonPadding,
+    transition: theme.palette.transition,
     textTransform: 'uppercase',
     fontWeight: 700,
     justifyContent: 'center',
@@ -21,13 +21,13 @@ const styles = {
     textAlign: 'center',
 
     '&:hover': {
-      backgroundColor: palette.interactiveHoverBGC,
-      borderColor: palette.interactiveHoverBorderColor,
-      color: palette.interactiveHoverColor,
+      backgroundColor: theme.palette.interactiveHoverBGC,
+      borderColor: theme.palette.interactiveHoverBorderColor,
+      color: theme.palette.interactiveHoverColor,
     },
 
     '&:active': {
-      backgroundColor: palette.interactiveActiveBGC,
+      backgroundColor: theme.palette.interactiveActiveBGC,
     },
   },
 };

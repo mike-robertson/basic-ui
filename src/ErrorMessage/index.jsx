@@ -1,13 +1,13 @@
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 import injectSheet from 'react-jss';
-import palette from '../themes';
+import theme from '../themes';
 
 const styles = {
   container: {
     padding: 15,
-    border: palette.borderDanger,
-    color: palette.colorDanger,
+    border: theme.palette.borderDanger,
+    color: theme.palette.colorDanger,
     display: 'flex',
     justifyContent: 'center',
   },
