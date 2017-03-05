@@ -12,7 +12,7 @@
     "webpack": "NODE_ENV=production webpack -p --bail",
     "postinstall": "mv lib/* ./ && rm -rf lib",
     "styleguide-server": "styleguidist server",
-    "styleguide-build": "styleguidist build",
+    "styleguide-build": "rm -rf ./build && styleguidist build && cp -R ./styleguide ./ && rm -rf ./styleguide",
     "flow": "node_modules/.bin/flow"
   },
   "repository": {
