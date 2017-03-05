@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 import injectSheet from 'react-jss';
+import palette from '../themes';
 
 const styles = {
   container: {
@@ -8,6 +9,8 @@ const styles = {
     padding: '15px 0',
     display: 'flex',
     flexDirection: 'column',
+    color: palette.textColorPrimary,
+
     '& > *': {
       margin: '15px 0',
     },
@@ -21,7 +24,7 @@ const styles = {
 };
 
 const Container = ({ title, classes, className, children }) => (
-  <div className={classnames(classes.container, className)}>
+  <div className={classnames(className, classes.container)}>
     {title && <h2>{title}</h2>}
     {children}
   </div>

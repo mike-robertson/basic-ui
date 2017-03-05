@@ -10,7 +10,15 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
+    fontSize: '1em',
     justifyContent: 'flex-end',
+
+    '& > label': {
+      color: palette.textColorPrimary,
+      textTransform: 'uppercase',
+      order: -5,
+      transition: palette.transition,
+    },
   },
   centerText: {
     textAlign: 'center',
@@ -20,11 +28,14 @@ const styles = {
     backgroundColor: palette.interactiveBGC,
     color: palette.textColorPrimary,
     border: palette.border,
-    padding: 5,
-    fontSize: 16,
-    transition: 'all ease-out 300ms',
+    padding: '0.4em',
+    fontSize: '1.2em',
+    transition: palette.transition,
     '&:focus': {
-      borderColor: palette.interactiveHoverBorderColor,
+      borderColor: palette.interactiveFocusBorderColor,
+    },
+    '&:focus ~ label': {
+      color: palette.interactiveFocusBorderColor,
     },
   },
 };
@@ -54,7 +65,6 @@ class FormInput extends PureComponent {
     const isInput = Tag === 'input' || Tag === 'textarea';
     return (
       <div className={classes.container}>
-        {label && <label htmlFor={this.id}>{label}</label>}
         <Tag
           id={this.id}
           value={value}
@@ -63,6 +73,7 @@ class FormInput extends PureComponent {
           placeholder={placeholder}
           className={classnames(center && classes.centerText, isInput && !className && classes.input, className)}
         />
+        {label && <label htmlFor={this.id}>{label}</label>}
       </div>
     );
   }

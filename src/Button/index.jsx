@@ -13,7 +13,7 @@ const styles = {
     border: palette.border,
     cursor: 'pointer',
     padding: palette.buttonPadding,
-    transition: 'all ease-out 300ms',
+    transition: palette.transition,
     textTransform: 'uppercase',
     fontWeight: 700,
     justifyContent: 'center',
@@ -48,7 +48,7 @@ const Button = ({
     <Tag
       {...buttonProps}
       onClick={onClick}
-      className={classnames(classes.container, className)}
+      className={classnames(className, classes.container)}
     >{children}</Tag>
   );
 };

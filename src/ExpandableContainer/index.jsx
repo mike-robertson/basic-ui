@@ -2,11 +2,13 @@ import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
 import injectSheet from 'react-jss';
 
+import palette from '../themes';
 import Button from '../Button';
 
 const styles = {
   container: {
     position: 'relative',
+    color: palette.textColorPrimary,
   },
   toggleButton: {
     position: 'absolute',
@@ -47,7 +49,7 @@ export class ExpandableContainer extends Component {
       ),
     );
     return (
-      <div className={classnames(classes.container, className)}>
+      <div className={classnames(className, classes.container)}>
         {childrenWithShow}
         <Button
           className={classes.toggleButton}

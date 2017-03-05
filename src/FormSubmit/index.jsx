@@ -1,11 +1,36 @@
 import React, { PropTypes } from 'react';
+import classnames from 'classnames';
+import injectSheet from 'react-jss';
+
+import palette from '../themes';
 
 import Button from '../Button';
 import FormInput from '../FormInput';
 
-const FormSubmit = ({ text, className }) => (
+const styles = {
+  button: {
+    borderColor: palette.submitFocusBorderColor,
+    color: palette.submitFocusBorderColor,
+
+    '&:hover': {
+      borderColor: palette.submitFocusBorderColor,
+      color: palette.submitFocusBorderColor,
+      backgroundColor: palette.submitFocusBackgroundColor,
+    },
+
+    '&:active': {
+      backgroundColor: palette.submitFocusBorderColor,
+    },
+
+    '&:focus': {
+      backgroundColor: palette.submitFocusBackgroundColor,
+    },
+  },
+};
+
+const FormSubmit = ({ text, className, classes }) => (
   <Button
-    className={className}
+    className={classnames(className, classes.button)}
     tag={FormInput}
     value={text}
     type="submit"
@@ -18,4 +43,4 @@ FormSubmit.propTypes = {
   className: PropTypes.string,
 };
 
-export default FormSubmit;
+export default injectSheet(styles)(FormSubmit);

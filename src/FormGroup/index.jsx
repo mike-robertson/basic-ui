@@ -14,7 +14,7 @@ const styles = {
 };
 
 const FormGroup = ({ children, classes, className }) => (
-  <div className={classnames(classes.container, className)}>
+  <div className={classnames(className, classes.container)}>
     {children}
   </div>
 );

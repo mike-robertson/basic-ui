@@ -1,5 +1,5 @@
-export const textColorPrimary = '#212020';
-export const textColorSecondary = '#F5F5F5';
+export const textColorPrimary = '#F5F5F5';
+export const textColorSecondary = '#212020';
 
 export const colorSuccess = 'rgba(102, 187, 106, 1)';
 export const colorSuccessTrans = 'rgba(102, 187, 106, 0.9)';
@@ -17,7 +17,7 @@ export const interactiveBGC = 'rgba(0, 0, 0, 0)';
 
 export const interactiveHoverBorderColor = textColorPrimary;
 export const interactiveHoverColor = textColorPrimary;
-export const interactiveHoverBGC = 'rgba(0, 0, 0, 0.2)';
+export const interactiveHoverBGC = 'rgba(255, 255, 255, 0.2)';
 // export const interactiveHoverBGC = '#005499';
 
 export const interactiveFocusBorderColor = 'rgb(102, 187, 255)';
@@ -34,7 +34,6 @@ export const interactiveActiveBGC = textColorPrimary;
 export const submitFocusBorderColor = 'rgb(102, 187, 255)';
 export const submitFocusBackgroundColor = 'rgba(196, 228, 255, 0.3)';
 /* ------------- End Submit ------------------ */
-
 
 export const colorMuted = '#727272';
 export const colorMutedLight = '#B3B3B3';

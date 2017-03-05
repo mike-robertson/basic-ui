@@ -16,7 +16,7 @@ const styles = {
 const ErrorMessage = ({ error, classes, message, className }) => {
   if (error) {
     return (
-      <div className={classnames(classes.container, className)}>
+      <div className={classnames(className, classes.container)}>
         <div>{message || JSON.stringify(error, null, 2)}</div>
       </div>
     );

@@ -34,7 +34,7 @@ const styles = {
 };
 
 const Form = ({ children, classes, onSubmit, disabled, className }) => (
-  <form onSubmit={onSubmit} className={classnames(classes.fieldset, className)}>
+  <form onSubmit={onSubmit} className={classnames(className, classes.fieldset)}>
     <fieldset disabled={disabled && 'disabled'}>
       {children}
     </fieldset>
