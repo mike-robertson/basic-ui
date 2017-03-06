@@ -13,11 +13,14 @@ const styles = {
     color: theme.palette.textColorPrimary,
     width: '100%',
   },
+  hide: {
+    display: 'none',
+  },
 };
 
 type PropsType = {
   initialShowValue: boolean,
-  showFlagName: string,
+  // showFlagName: string,
   className: string,
   classes: Object,
   children: any,
@@ -31,12 +34,13 @@ class ExpandableContainer extends Component {
     noRender: boolean,
   };
   props: PropsType;
-  handleOnClick: () => void
+  defaultProps: PropsType;
+  handleOnClick: () => void;
 
   constructor(props: PropsType) {
     super();
     this.state = {
-      show: props.initialShowValue,
+      show: props.initialShowValue || false,
       noRender: !props.initialShowValue,
     };
 
@@ -51,18 +55,10 @@ class ExpandableContainer extends Component {
   }
 
   render(): React.Element<any> {
-    const { className, showFlagName, classes, title, titleContent } = this.props;
+    const { className, classes, title, titleContent, children } = this.props;
     const { show, noRender } = this.state;
-    const childrenWithShow = React.Children.map(
-      this.props.children,
-      child => React.cloneElement(
-        child,
-        {
-          [showFlagName]: show,
-          noRender,
-        },
-      ),
-    );
+
+    console.log('show', show, noRender, children);
     return (
       <div className={classnames(className, classes.container)}>
         <ExpandableContainerHeader
@@ -72,7 +68,11 @@ class ExpandableContainer extends Component {
         >
           {titleContent}
         </ExpandableContainerHeader>
-        {show && childrenWithShow}
+        {!noRender && (
+          <div className={classnames({ [classes.hide]: !show })}>
+            {children}
+          </div>
+        )}
       </div>
     );
   }
@@ -80,7 +80,7 @@ class ExpandableContainer extends Component {
 
 ExpandableContainer.propTypes = {
   initialShowValue: PropTypes.bool,
-  showFlagName: PropTypes.string,
+  // showFlagName: PropTypes.string,
 };
 
 const ExpandableContainerWithClasses = injectSheet(styles)(ExpandableContainer);

@@ -1,6 +1,6 @@
 {
   "name": "basic-ui",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "A react component library of basic ui components with various themes.",
   "main": "lib/",
   "scripts": {
@@ -10,7 +10,6 @@
     "lint": "eslint . --ext .js,.jsx",
     "lint:fix": "eslint . --ext .js,.jsx --fix",
     "webpack": "NODE_ENV=production webpack -p --bail",
-    "postinstall": "mv lib/* ./ && rm -rf lib",
     "styleguide-server": "styleguidist server",
     "styleguide-build": "rm -rf ./build && styleguidist build && cp -R ./styleguide ./ && rm -rf ./styleguide",
     "flow": "node_modules/.bin/flow"
