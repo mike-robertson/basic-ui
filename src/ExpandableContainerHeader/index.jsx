@@ -10,17 +10,21 @@ const styles = {
     width: '100%',
     display: 'flex',
   },
-  titleAndContent: {
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  arrowContainer: {
+  title: {
+    width: '100%',
     display: 'flex',
     alignItems: 'center',
+    fontSize: '1.5em',
+    justifyContent: 'space-between',
 
     '& svg': {
       transition: theme.palette.transition,
     },
+  },
+  titleAndContent: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '100%',
   },
   open: {
     '& svg': {
@@ -41,11 +45,11 @@ type PropsType = {
 const ExpandableContainerHeader = ({ className, onClick, classes, title, children, show }: PropsType) => (
   <div className={classnames(classes.container, className)}>
     <div className={classes.titleAndContent}>
-      <h2>{title}</h2>
+      <div className={classnames(classes.title, { [classes.open]: show })}>
+        <div>{title}</div>
+        <ArrowRightIcon onClick={onClick} height={42} width={42} />
+      </div>
       {children}
-    </div>
-    <div className={classnames(classes.arrowContainer, { [classes.open]: show })}>
-      <ArrowRightIcon onClick={onClick} />
     </div>
   </div>
 );

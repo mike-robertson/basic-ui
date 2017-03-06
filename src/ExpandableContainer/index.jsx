@@ -58,7 +58,6 @@ class ExpandableContainer extends Component {
     const { className, classes, title, titleContent, children } = this.props;
     const { show, noRender } = this.state;
 
-    console.log('show', show, noRender, children);
     return (
       <div className={classnames(className, classes.container)}>
         <ExpandableContainerHeader
