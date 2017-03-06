@@ -7,6 +7,7 @@ import ArrowRightIcon from '../Icons/ArrowRight';
 
 const styles = {
   container: {
+    width: '100%',
     display: 'flex',
   },
   titleAndContent: {
@@ -28,20 +29,20 @@ const styles = {
   },
 };
 
-type PropType = {
+type PropsType = {
   className: string,
   onClick: () => void,
   classes: Object,
   title: string,
-  content: React.Element<any>,
+  children: React.Element<any>,
   show: boolean,
 };
 
-const ExpandableContainerHeader = ({ className, onClick, classes, title, content, show }: PropType) => (
+const ExpandableContainerHeader = ({ className, onClick, classes, title, children, show }: PropsType) => (
   <div className={classnames(classes.container, className)}>
     <div className={classes.titleAndContent}>
       <h2>{title}</h2>
-      {content}
+      {children}
     </div>
     <div className={classnames(classes.arrowContainer, { [classes.open]: show })}>
       <ArrowRightIcon onClick={onClick} />
@@ -54,7 +55,7 @@ ExpandableContainerHeader.propTypes = {
   className: PropTypes.string,
   classes: PropTypes.object,
   title: PropTypes.string,
-  content: PropTypes.element,
+  children: PropTypes.element,
   show: PropTypes.bool.isRequired,
 };
 
