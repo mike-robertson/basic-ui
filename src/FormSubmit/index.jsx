@@ -11,6 +11,7 @@ const styles = {
   button: {
     borderColor: theme.palette.submitFocusBorderColor,
     color: theme.palette.submitFocusBorderColor,
+    fontSize: 16,
 
     '&:hover': {
       borderColor: theme.palette.submitFocusBorderColor,
@@ -30,7 +31,7 @@ const styles = {
 
 const FormSubmit = ({ text, className, classes }) => (
   <Button
-    className={classnames(className, classes.button)}
+    className={classnames(classes.button, className)}
     tag={FormInput}
     value={text}
     type="submit"

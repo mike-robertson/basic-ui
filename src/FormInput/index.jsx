@@ -74,7 +74,7 @@ class FormInput extends PureComponent {
       onClick,
     } = this.props;
     const Tag = tag || 'input';
-    const isInput = Tag === 'input' || Tag === 'textarea';
+    const isInput = (Tag === 'input' || Tag === 'textarea') && type.toLowerCase() !== 'submit';
     return (
       <div className={classes.container}>
         <Tag
