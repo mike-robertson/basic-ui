@@ -9,6 +9,7 @@ const TextInput = ({
   value,
   onChange,
   placeholder,
+  onClick,
 }: TextInputProps) => (
   <FormInput
     type="text"
@@ -17,6 +18,7 @@ const TextInput = ({
     onChange={onChange}
     placeholder={placeholder}
     className={className}
+    onClick={onClick}
   />
 );
 
@@ -26,6 +28,7 @@ TextInput.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]),
   className: PropTypes.string,
   placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]),
+  onClick: PropTypes.func,
 };
 
 export default TextInput;

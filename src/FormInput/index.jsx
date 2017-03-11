@@ -52,6 +52,7 @@ class FormInput extends PureComponent {
     placeholder: string | number | boolean,
     classes: Object,
     center: boolean,
+    onClick: () => void,
   };
 
   constructor() {
@@ -60,12 +61,24 @@ class FormInput extends PureComponent {
   }
 
   render(): React.Element<any> {
-    const { tag, onChange, label, type = 'text', value, className, placeholder, classes, center } = this.props;
+    const {
+      tag,
+      onChange,
+      label,
+      type = 'text',
+      value,
+      className,
+      placeholder,
+      classes,
+      center,
+      onClick,
+    } = this.props;
     const Tag = tag || 'input';
     const isInput = Tag === 'input' || Tag === 'textarea';
     return (
       <div className={classes.container}>
         <Tag
+          onClick={onClick}
           id={this.id}
           value={value}
           type={type}
@@ -89,6 +102,7 @@ FormInput.propTypes = {
   placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]),
   classes: PropTypes.object,
   center: PropTypes.bool,
+  onClick: PropTypes.func,
 };
 
 export default injectSheet(styles)(FormInput);

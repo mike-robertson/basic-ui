@@ -4,4 +4,5 @@ declare type TextInputProps = {
   value: string | number | boolean,
   onChange: string,
   placeholder: string,
+  onClick: () => void,
 }
