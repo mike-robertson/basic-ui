@@ -1,26 +1,33 @@
 // @flow
-import React, { PropTypes } from 'react';
-
+import React, { PureComponent, PropTypes } from 'react';
 import FormInput from '../FormInput';
 
-const TextInput = ({
-  className,
-  label,
-  value,
-  onChange,
-  placeholder,
-  onClick,
-}: TextInputProps) => (
-  <FormInput
-    type="text"
-    label={label}
-    value={value}
-    onChange={onChange}
-    placeholder={placeholder}
-    className={className}
-    onClick={onClick}
-  />
-);
+class TextInput extends PureComponent {
+  props: TextInputProps;
+
+  render(): React.Element<any> {
+    const {
+      className,
+      label,
+      value,
+      onChange,
+      placeholder,
+      onClick,
+    } = this.props;
+
+    return (
+      <FormInput
+        type="text"
+        label={label}
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+        className={className}
+        onClick={onClick}
+      />
+    );
+  }
+}
 
 TextInput.propTypes = {
   onChange: PropTypes.func.isRequired,
