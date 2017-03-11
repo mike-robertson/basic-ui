@@ -84,7 +84,7 @@ class FormInput extends PureComponent {
           type={type}
           onChange={onChange}
           placeholder={placeholder}
-          className={classnames(center && classes.centerText, isInput && !className && classes.input, className)}
+          className={classnames(center && classes.centerText, isInput && classes.input, className)}
         />
         {label && <label htmlFor={this.id}>{label}</label>}
       </div>
