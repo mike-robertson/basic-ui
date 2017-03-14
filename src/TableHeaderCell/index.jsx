@@ -39,7 +39,7 @@ const TableHeaderCell = ({
   ascending,
 }: PropsType) => (
   <th
-    onClick={() => sort(column.name, column.sortFn)}
+    onClick={() => sort(column.field, column.sortFn)}
     className={classnames(
       classes.container,
       className,
