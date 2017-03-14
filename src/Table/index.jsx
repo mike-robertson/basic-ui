@@ -104,7 +104,11 @@ Table.propTypes = {
   classes: PropTypes.object,
   className: PropTypes.string,
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
-  columns: PropTypes.arrayOf(PropTypes.object).isRequired,
+  columns: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    field: PropTypes.string.isRequired,
+    sortFn: PropTypes.func,
+  })).isRequired,
 };
 
 export default injectSheet(styles)(Table);
