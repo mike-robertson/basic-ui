@@ -41,6 +41,7 @@ export const colorMutedLight = '#B3B3B3';
 
 
 export const border = `3px solid ${textColorPrimary}`;
+export const dashedBorder = `1px dashed ${textColorPrimary}`;
 export const borderDanger = `3px solid ${colorDangerTrans}`;
 export const borderSuccess = `3px solid ${colorSuccessTrans}`;
 

@@ -80,7 +80,7 @@
       "always",
       {
         "annotateUndefined": "never",
-        "excludeArrowFunctions": "expressionsOnly"
+        "excludeArrowFunctions": true
       }
     ],
     "flowtype/require-valid-file-annotation": 2,

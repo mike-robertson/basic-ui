@@ -1,0 +1,5 @@
+declare type TableColumn = {
+  name: string,
+  field: string,
+  sortFn: () => void
+};
