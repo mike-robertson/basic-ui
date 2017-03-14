@@ -16,6 +16,7 @@ const styles = {
     alignItems: 'center',
     fontSize: '1.5em',
     justifyContent: 'space-between',
+    cursor: 'pointer',
 
     '& svg': {
       transition: theme.palette.transition,
@@ -45,9 +46,9 @@ type PropsType = {
 const ExpandableContainerHeader = ({ className, onClick, classes, title, children, show }: PropsType) => (
   <div className={classnames(classes.container, className)}>
     <div className={classes.titleAndContent}>
-      <div className={classnames(classes.title, { [classes.open]: show })}>
+      <div onClick={onClick} className={classnames(classes.title, { [classes.open]: show })}>
         <div>{title}</div>
-        <ArrowRightIcon onClick={onClick} height={42} width={42} />
+        <ArrowRightIcon height={42} width={42} />
       </div>
       {children}
     </div>

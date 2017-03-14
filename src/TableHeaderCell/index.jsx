@@ -19,6 +19,9 @@ const styles = {
   desc: {
     color: theme.palette.colorDanger,
   },
+  sortable: {
+    cursor: 'pointer',
+  },
 };
 
 type PropsType = {
@@ -39,7 +42,7 @@ const TableHeaderCell = ({
   ascending,
 }: PropsType) => (
   <th
-    onClick={() => sort(column.field, column.sortFn)}
+    onClick={column.noSort ? f => f : () => sort(column.field, column.sortFn)}
     className={classnames(
       classes.container,
       className,
@@ -47,6 +50,7 @@ const TableHeaderCell = ({
         [classes.sorted]: isSorted,
         [classes.asc]: ascending && isSorted,
         [classes.desc]: !ascending && isSorted,
+        [classes.sortable]: !column.noSort || column.sortFn,
       },
     )}
   >

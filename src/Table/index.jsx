@@ -65,6 +65,16 @@ class Table extends PureComponent {
     });
   }
 
+  componentWillReceiveProps({ data }: { data: Array<Object> }) {
+    if (data !== this.props.data) {
+      this.setState({
+        sorted: null,
+        ascending: false,
+        data,
+      });
+    }
+  }
+
   render(): React.Element<any> {
     const {
       classes,
