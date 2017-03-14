@@ -39,7 +39,7 @@ class Table extends PureComponent {
     this.sort = this.sort.bind(this);
   }
 
-  sort(field: string, sortFn: () => number) {
+  sort(field: string | Array<string>, sortFn: () => number) {
     this.setState(prevState => {
       if (prevState.sorted === field) {
         return {
@@ -48,11 +48,21 @@ class Table extends PureComponent {
         };
       }
       const sortedData = sortFn
-        ? [...prevState.data].sort((a, b) => sortFn(a[field], b[field]))
+        ? [...prevState.data].sort((a, b) => {
+          // TODO - this should actually choose a different field for a and b since
+          // one could be defined for row a and a different for row b
+          const presentField = Array.isArray(field)
+            ? field.find(f => a[f] !== undefined && a[f] !== null)
+            : field;
+          return sortFn(a[presentField], b[presentField]);
+        })
         : [...prevState.data].sort((a, b) => {
-          if (a[field] > b[field]) {
+          const presentField = Array.isArray(field)
+            ? field.find(f => f !== undefined && f !== null)
+            : field;
+          if (a[presentField] > b[presentField]) {
             return 1;
-          } else if (a[field] < b[field]) {
+          } else if (a[presentField] < b[presentField]) {
             return -1;
           }
           return 0;
@@ -93,7 +103,7 @@ class Table extends PureComponent {
           <tr>
             {columns.map(column => (
               <TableHeaderCell
-                key={column.field}
+                key={Array.isArray(column.field) ? column.field[0] : column.field}
                 column={column}
                 sort={this.sort}
                 isSorted={sorted === column.field}

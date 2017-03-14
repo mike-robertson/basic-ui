@@ -22,7 +22,13 @@ const TableRow = ({
   columns,
 }: PropsType) => (
   <tr className={classnames(classes.container, className)}>
-    {columns.map(({ field }) => <TableCell key={field}>{row[field]}</TableCell>)}
+    {columns.map(({ field }) => {
+      const presentField = Array.isArray(field)
+        ? field.find(f => row[f] !== undefined && row[f] !== null)
+        : field;
+      console.log(presentField, Array.isArray(field), field)
+      return <TableCell key={field}>{row[presentField]}</TableCell>;
+    })}
   </tr>
 );
 
