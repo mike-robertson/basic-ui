@@ -17,20 +17,20 @@ const styles = {
         '&:hover': {
           backgroundColor: theme.palette.colorMuted,
           borderColor: theme.palette.colorMutedLight,
-          cursor: 'not-allowed',
-        },
+          cursor: 'not-allowed'
+        }
       },
 
       '& > *': {
-        marginBottom: '1em',
+        marginBottom: '1em'
       },
 
       '& input[type=submit]': {
         width: '100%',
-        alignSelf: 'flex-end',
-      },
-    },
-  },
+        alignSelf: 'flex-end'
+      }
+    }
+  }
 };
 
 const Form = ({ children, classes, onSubmit, disabled, className }) => (
@@ -45,7 +45,7 @@ Form.propTypes = {
   children: PropTypes.node.isRequired,
   onSubmit: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
-  className: PropTypes.string,
+  className: PropTypes.string
 };
 
 export default injectSheet(styles)(Form);

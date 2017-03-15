@@ -11,11 +11,11 @@ const styles = {
   container: {
     position: 'relative',
     color: theme.palette.textColorPrimary,
-    width: '100%',
+    width: '100%'
   },
   hide: {
-    display: 'none',
-  },
+    display: 'none'
+  }
 };
 
 type PropsType = {
@@ -41,7 +41,7 @@ class ExpandableContainer extends Component {
     super();
     this.state = {
       show: props.initialShowValue || false,
-      noRender: !props.initialShowValue,
+      noRender: !props.initialShowValue
     };
 
     this.handleOnClick = this.handleOnClick.bind(this);
@@ -50,7 +50,7 @@ class ExpandableContainer extends Component {
   handleOnClick() {
     this.setState({
       show: !this.state.show,
-      noRender: false,
+      noRender: false
     });
   }
 
@@ -78,7 +78,7 @@ class ExpandableContainer extends Component {
 }
 
 ExpandableContainer.propTypes = {
-  initialShowValue: PropTypes.bool,
+  initialShowValue: PropTypes.bool
   // showFlagName: PropTypes.string,
 };
 

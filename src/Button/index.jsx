@@ -23,13 +23,13 @@ const styles = {
     '&:hover': {
       backgroundColor: theme.palette.interactiveHoverBGC,
       borderColor: theme.palette.interactiveHoverBorderColor,
-      color: theme.palette.interactiveHoverColor,
+      color: theme.palette.interactiveHoverColor
     },
 
     '&:active': {
-      backgroundColor: theme.palette.interactiveActiveBGC,
-    },
-  },
+      backgroundColor: theme.palette.interactiveActiveBGC
+    }
+  }
 };
 
 const Button = ({
@@ -56,7 +56,7 @@ const Button = ({
 Button.propTypes = {
   onClick: PropTypes.func,
   className: PropTypes.string,
-  tag: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+  tag: PropTypes.oneOfType([PropTypes.node, PropTypes.func])
 };
 
 export default injectSheet(styles)(Button);

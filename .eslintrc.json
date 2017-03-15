@@ -30,6 +30,9 @@
   ],
   "rules": {
     "arrow-parens": ["error", "as-needed"],
+    "comma-dangle": ["error", {
+      "functions": "ignore"
+    }],
     "max-len": ["error", 150],
     "no-confusing-arrow": 0,
     "no-shadow": 0,

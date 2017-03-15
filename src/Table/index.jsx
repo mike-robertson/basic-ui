@@ -12,8 +12,8 @@ const styles = {
   container: {
     border: theme.palette.border,
     borderCollapse: 'collapse',
-    color: theme.palette.textColorPrimary,
-  },
+    color: theme.palette.textColorPrimary
+  }
 };
 
 class Table extends PureComponent {
@@ -34,35 +34,31 @@ class Table extends PureComponent {
     super();
     this.state = {
       data,
-      sorted: null,
+      sorted: null
     };
     this.sort = this.sort.bind(this);
   }
 
-  sort(field: string | Array<string>, sortFn: () => number) {
+  sort(field: string | () => any, sortFn: () => number) {
     this.setState(prevState => {
       if (prevState.sorted === field) {
         return {
           ascending: !prevState.ascending,
-          data: [...prevState.data].reverse(),
+          data: [...prevState.data].reverse()
         };
       }
       const sortedData = sortFn
-        ? [...prevState.data].sort((a, b) => {
-          // TODO - this should actually choose a different field for a and b since
-          // one could be defined for row a and a different for row b
-          const presentField = Array.isArray(field)
-            ? field.find(f => a[f] !== undefined && a[f] !== null)
-            : field;
-          return sortFn(a[presentField], b[presentField]);
-        })
+        ? [...prevState.data].sort((a, b) => typeof field === 'function'
+            ? sortFn(field(a), field(b))
+            : sortFn(a[field], b[field])
+        )
         : [...prevState.data].sort((a, b) => {
-          const presentField = Array.isArray(field)
-            ? field.find(f => f !== undefined && f !== null)
-            : field;
-          if (a[presentField] > b[presentField]) {
+          const [aValue, bValue] = typeof field === 'function'
+            ? [field(a), field(b)]
+            : [field[a], field[b]];
+          if (aValue > bValue) {
             return 1;
-          } else if (a[presentField] < b[presentField]) {
+          } else if (aValue < bValue) {
             return -1;
           }
           return 0;
@@ -70,7 +66,7 @@ class Table extends PureComponent {
       return {
         sorted: field,
         ascending: true,
-        data: sortedData,
+        data: sortedData
       };
     });
   }
@@ -80,7 +76,7 @@ class Table extends PureComponent {
       this.setState({
         sorted: null,
         ascending: false,
-        data,
+        data
       });
     }
   }
@@ -89,12 +85,12 @@ class Table extends PureComponent {
     const {
       classes,
       className,
-      columns,
+      columns
     } = this.props;
     const {
       data,
       sorted,
-      ascending,
+      ascending
     } = this.state;
 
     return (
@@ -126,9 +122,9 @@ Table.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
   columns: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
-    field: PropTypes.string.isRequired,
-    sortFn: PropTypes.func,
-  })).isRequired,
+    field: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.func.isRequired]),
+    sortFn: PropTypes.func
+  })).isRequired
 };
 
 export default injectSheet(styles)(Table);

@@ -9,8 +9,8 @@ const styles = {
     border: theme.palette.borderDanger,
     color: theme.palette.colorDanger,
     display: 'flex',
-    justifyContent: 'center',
-  },
+    justifyContent: 'center'
+  }
 };
 
 const ErrorMessage = ({ error, classes, message, className }) => {
@@ -27,7 +27,7 @@ const ErrorMessage = ({ error, classes, message, className }) => {
 ErrorMessage.propTypes = {
   error: PropTypes.object,
   message: PropTypes.string,
-  className: PropTypes.string,
+  className: PropTypes.string
 };
 
 export default injectSheet(styles)(ErrorMessage);

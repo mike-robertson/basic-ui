@@ -6,7 +6,7 @@ const themeStore = {
   },
   setPalette(newPalette) {
     this.palette = newPalette;
-  },
+  }
 };
 
 const theme = Object.create(themeStore);

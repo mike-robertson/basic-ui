@@ -12,15 +12,15 @@ const styles = {
     color: theme.palette.textColorPrimary,
 
     '& > *': {
-      margin: '15px 0',
+      margin: '15px 0'
     },
     '& > *:firstChild': {
-      marginTop: 0,
+      marginTop: 0
     },
     '& > *:lastChild': {
-      marginBottom: 0,
-    },
-  },
+      marginBottom: 0
+    }
+  }
 };
 
 const Container = ({ title, classes, className, children }) => (
@@ -33,7 +33,7 @@ const Container = ({ title, classes, className, children }) => (
 Container.propTypes = {
   title: PropTypes.string,
   className: PropTypes.string,
-  children: PropTypes.node,
+  children: PropTypes.node
 };
 
 export default injectSheet(styles)(Container);

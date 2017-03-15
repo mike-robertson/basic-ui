@@ -6,11 +6,11 @@ import theme from '../themes';
 const styles = {
   container: {
     display: 'inline',
-    color: theme.palette.textColorPrimary,
+    color: theme.palette.textColorPrimary
   },
   loading: {
-    color: theme.palette.colorMuted,
-  },
+    color: theme.palette.colorMuted
+  }
 };
 
 const LoadingText = ({
@@ -21,7 +21,7 @@ const LoadingText = ({
   loadingText = 'Loading...',
   errorText = 'Error!',
   className,
-  classes,
+  classes
 }) => {
   let renderText = displayFn(children);
   if (isError) {
@@ -43,7 +43,7 @@ LoadingText.propTypes = {
   children: PropTypes.node,
   isLoading: PropTypes.bool,
   errorText: PropTypes.string,
-  isError: PropTypes.bool,
+  isError: PropTypes.bool
 };
 
 export default injectSheet(styles)(LoadingText);

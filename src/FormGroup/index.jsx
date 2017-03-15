@@ -8,9 +8,9 @@ const styles = {
     flexDirection: 'row',
     margin: '0 -15px',
     '& > *': {
-      margin: '0 15px',
-    },
-  },
+      margin: '0 15px'
+    }
+  }
 };
 
 const FormGroup = ({ children, classes, className }) => (
@@ -21,7 +21,7 @@ const FormGroup = ({ children, classes, className }) => (
 
 FormGroup.propTypes = {
   children: PropTypes.node,
-  className: PropTypes.string,
+  className: PropTypes.string
 };
 
 export default injectSheet(styles)(FormGroup);

@@ -9,14 +9,14 @@ const styles = {
     borderBottom: theme.palette.border,
     borderTop: theme.palette.border,
     borderLeft: theme.palette.dashedBorder,
-    borderRight: theme.palette.dashedBorder,
-  },
+    borderRight: theme.palette.dashedBorder
+  }
 };
 
 const TableCell = ({
   classes,
   className,
-  children,
+  children
 }) => (
   <td className={classnames(classes.container, className)}>
     {children}
@@ -26,7 +26,7 @@ const TableCell = ({
 TableCell.propTypes = {
   classes: PropTypes.object,
   className: PropTypes.string,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 };
 
 export default injectSheet(styles)(TableCell);
