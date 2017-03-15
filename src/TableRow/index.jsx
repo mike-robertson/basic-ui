@@ -15,6 +15,16 @@ type PropsType = {
   columns: Array<TableColumn>,
 };
 
+const getValue = (row, field, displayFn) => {
+  const fieldValue = typeof field === 'function'
+    ? field(row)
+    : row[field];
+  if (displayFn && typeof displayFn === 'function') {
+    return displayFn(fieldValue);
+  }
+  return fieldValue;
+};
+
 const TableRow = ({
   classes,
   className,
@@ -22,13 +32,9 @@ const TableRow = ({
   columns
 }: PropsType) => (
   <tr className={classnames(classes.container, className)}>
-    {columns.map(({ field }) => (
+    {columns.map(({ field, displayFn }) => (
       <TableCell key={field}>
-        {
-          typeof field === 'function'
-          ? field(row)
-          : row[field]
-        }
+        {getValue(row, field, displayFn)}
       </TableCell>
     ))}
   </tr>

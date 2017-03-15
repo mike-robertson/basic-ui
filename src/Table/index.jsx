@@ -99,7 +99,7 @@ class Table extends PureComponent {
           <tr>
             {columns.map(column => (
               <TableHeaderCell
-                key={Array.isArray(column.field) ? column.field[0] : column.field}
+                key={column.name}
                 column={column}
                 sort={this.sort}
                 isSorted={sorted === column.field}

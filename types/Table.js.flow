@@ -1,6 +1,7 @@
 declare type TableColumn = {
   name: string,
   field: string | () => string,
+  displayFn?: () => any,
   sortFn?: () => void,
   noSort?: boolean,
 };
