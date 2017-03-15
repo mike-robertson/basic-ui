@@ -45,5 +45,5 @@ export const borderDanger = `3px solid ${colorDangerTrans}`;
 export const borderSuccess = `3px solid ${colorSuccessTrans}`;
 
 export const buttonPadding = '1em 3em';
-
+export const tableCellPadding = '20px';
 export const transition = 'all ease-out 300ms';

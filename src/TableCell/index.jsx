@@ -5,11 +5,12 @@ import theme from '../themes';
 
 const styles = {
   container: {
-    padding: 10,
+    padding: theme.palette.tableCellPadding,
     borderBottom: theme.palette.border,
     borderTop: theme.palette.border,
     borderLeft: theme.palette.dashedBorder,
-    borderRight: theme.palette.dashedBorder
+    borderRight: theme.palette.dashedBorder,
+    textAlign: 'center'
   }
 };
 
