@@ -5,7 +5,6 @@ import injectSheet from 'react-jss';
 import theme from '../themes';
 
 import Button from '../Button';
-import FormInput from '../FormInput';
 
 const styles = {
   button: {
@@ -29,19 +28,22 @@ const styles = {
   },
 };
 
-const FormSubmit = ({ text, className, classes }) => (
+const FormSubmit = ({ children, className, classes, formId }) => (
   <Button
     className={classnames(classes.button, className)}
-    tag={FormInput}
-    value={text}
+    tag="button"
     type="submit"
+    form={formId}
     center
-  />
+  >
+    {children}
+  </Button>
 );
 
 FormSubmit.propTypes = {
-  text: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   className: PropTypes.string,
+  formId: PropTypes.string,
 };
 
 export default injectSheet(styles)(FormSubmit);
