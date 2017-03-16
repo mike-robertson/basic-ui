@@ -5,7 +5,6 @@ import injectSheet from 'react-jss';
 import theme from '../themes';
 
 import Button from '../Button';
-import ButtonLoading from '../Icons/ButtonLoading';
 
 const styles = {
   button: {
@@ -43,9 +42,10 @@ const FormSubmit = ({ children, className, classes, formId, loading }) => (
     tag="button"
     type="submit"
     form={formId}
+    loading={loading}
     center
   >
-    {loading ? <ButtonLoading /> : children}
+    {children}
   </Button>
 );
 

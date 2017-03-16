@@ -2,6 +2,7 @@
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 import injectSheet from 'react-jss';
+import ButtonLoading from '../Icons/ButtonLoading';
 import theme from '../themes';
 
 const styles = {
@@ -32,6 +33,18 @@ const styles = {
   },
 };
 
+type PropsType = {
+  onClick: void,
+  classes: any,
+  className: string,
+  tag: string | void,
+  children: React.Element<any>,
+  sheet: Object,
+  buttonProps?: any,
+  loading: boolean,
+};
+
+
 const Button = ({
   onClick,
   classes,
@@ -40,8 +53,9 @@ const Button = ({
   children,
   // eslint-disable-next-line no-unused-vars
   sheet,
+  loading,
   ...buttonProps
-}: ButtonProps): React.Element<any> => {
+}: PropsType): React.Element<any> => {
   const Tag = tag || 'button';
 
   return (
@@ -49,7 +63,7 @@ const Button = ({
       {...buttonProps}
       onClick={onClick}
       className={classnames(className, classes.container)}
-    >{children}</Tag>
+    >{loading ? <ButtonLoading /> : children}</Tag>
   );
 };
 
@@ -57,6 +71,8 @@ Button.propTypes = {
   onClick: PropTypes.func,
   className: PropTypes.string,
   tag: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+  loading: PropTypes.bool,
+  children: PropTypes.node.isRequired,
 };
 
 export default injectSheet(styles)(Button);
