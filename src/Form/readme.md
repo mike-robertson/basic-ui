@@ -10,6 +10,6 @@
     <TextInput label="Wow" />
     <TextInput label="Forms" />
   </FormGroup>
-  <FormSubmit text="Submit" />
+  <FormSubmit>Text</FormSubmit>
 </Form>
 ```
