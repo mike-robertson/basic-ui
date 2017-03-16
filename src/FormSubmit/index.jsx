@@ -16,17 +16,17 @@ const styles = {
     '&:hover': {
       borderColor: theme.palette.submitFocusBorderColor,
       color: theme.palette.submitFocusBorderColor,
-      backgroundColor: theme.palette.submitFocusBackgroundColor
+      backgroundColor: theme.palette.submitFocusBackgroundColor,
     },
 
     '&:focus': {
-      backgroundColor: theme.palette.submitFocusBackgroundColor
+      backgroundColor: theme.palette.submitFocusBackgroundColor,
     },
 
     '&:active': {
-      backgroundColor: theme.palette.submitFocusBorderColor
-    }
-  }
+      backgroundColor: theme.palette.submitFocusBorderColor,
+    },
+  },
 };
 
 const FormSubmit = ({ text, className, classes }) => (
@@ -41,7 +41,7 @@ const FormSubmit = ({ text, className, classes }) => (
 
 FormSubmit.propTypes = {
   text: PropTypes.string.isRequired,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 export default injectSheet(styles)(FormSubmit);

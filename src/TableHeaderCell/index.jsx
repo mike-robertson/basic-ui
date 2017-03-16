@@ -1,3 +1,5 @@
+// @flow
+
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 import injectSheet from 'react-jss';
@@ -11,17 +13,18 @@ const styles = {
     borderTop: theme.palette.border,
     borderLeft: theme.palette.dashedBorder,
     borderRight: theme.palette.dashedBorder,
-    textTransform: 'uppercase'
+    textTransform: 'uppercase',
+    userSelect: 'none',
   },
   asc: {
-    color: theme.palette.colorSuccess
+    color: theme.palette.colorSuccess,
   },
   desc: {
-    color: theme.palette.colorDanger
+    color: theme.palette.colorDanger,
   },
   sortable: {
-    cursor: 'pointer'
-  }
+    cursor: 'pointer',
+  },
 };
 
 type PropsType = {
@@ -39,7 +42,7 @@ const TableHeaderCell = ({
   column,
   sort,
   isSorted,
-  ascending
+  ascending,
 }: PropsType) => (
   <th
     onClick={column.noSort ? f => f : () => sort(column.field, column.sortFn)}
@@ -50,8 +53,8 @@ const TableHeaderCell = ({
         [classes.sorted]: isSorted,
         [classes.asc]: ascending && isSorted,
         [classes.desc]: !ascending && isSorted,
-        [classes.sortable]: !column.noSort || column.sortFn
-      },
+        [classes.sortable]: !column.noSort || column.sortFn,
+      }
     )}
   >
     {column.name}
@@ -64,7 +67,7 @@ TableHeaderCell.propTypes = {
   sort: PropTypes.func,
   column: PropTypes.object.isRequired,
   isSorted: PropTypes.bool,
-  ascending: PropTypes.bool
+  ascending: PropTypes.bool,
 };
 
 export default injectSheet(styles)(TableHeaderCell);

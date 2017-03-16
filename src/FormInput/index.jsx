@@ -17,11 +17,11 @@ const styles = {
       color: theme.palette.textColorPrimary,
       textTransform: 'uppercase',
       order: -5,
-      transition: theme.palette.transition
-    }
+      transition: theme.palette.transition,
+    },
   },
   centerText: {
-    textAlign: 'center'
+    textAlign: 'center',
   },
   input: {
     outline: 'none',
@@ -32,12 +32,12 @@ const styles = {
     fontSize: '1.2em',
     transition: theme.palette.transition,
     '&:focus': {
-      borderColor: theme.palette.interactiveFocusBorderColor
+      borderColor: theme.palette.interactiveFocusBorderColor,
     },
     '&:focus ~ label': {
-      color: theme.palette.interactiveFocusBorderColor
-    }
-  }
+      color: theme.palette.interactiveFocusBorderColor,
+    },
+  },
 };
 
 class FormInput extends PureComponent {
@@ -71,7 +71,7 @@ class FormInput extends PureComponent {
       placeholder,
       classes,
       center,
-      onClick
+      onClick,
     } = this.props;
     const Tag = tag || 'input';
     const isInput = (Tag === 'input' || Tag === 'textarea') && type.toLowerCase() !== 'submit';
@@ -102,7 +102,7 @@ FormInput.propTypes = {
   placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]),
   classes: PropTypes.object,
   center: PropTypes.bool,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
 };
 
 export default injectSheet(styles)(FormInput);

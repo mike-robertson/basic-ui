@@ -8,7 +8,7 @@ import ArrowRightIcon from '../Icons/ArrowRight';
 const styles = {
   container: {
     width: '100%',
-    display: 'flex'
+    display: 'flex',
   },
   title: {
     width: '100%',
@@ -19,19 +19,19 @@ const styles = {
     cursor: 'pointer',
 
     '& svg': {
-      transition: theme.palette.transition
-    }
+      transition: theme.palette.transition,
+    },
   },
   titleAndContent: {
     display: 'flex',
     flexDirection: 'column',
-    width: '100%'
+    width: '100%',
   },
   open: {
     '& svg': {
-      transform: 'rotate(90deg)'
-    }
-  }
+      transform: 'rotate(90deg)',
+    },
+  },
 };
 
 type PropsType = {
@@ -61,7 +61,7 @@ ExpandableContainerHeader.propTypes = {
   classes: PropTypes.object,
   title: PropTypes.string,
   children: PropTypes.element,
-  show: PropTypes.bool.isRequired
+  show: PropTypes.bool.isRequired,
 };
 
 export default injectSheet(styles)(ExpandableContainerHeader);

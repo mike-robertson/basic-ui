@@ -29,7 +29,7 @@ const TableRow = ({
   classes,
   className,
   row,
-  columns
+  columns,
 }: PropsType) => (
   <tr className={classnames(classes.container, className)}>
     {columns.map(({ field, displayFn }) => (
@@ -44,7 +44,7 @@ TableRow.propTypes = {
   classes: PropTypes.object,
   className: PropTypes.string,
   row: PropTypes.object,
-  columns: PropTypes.arrayOf(PropTypes.object)
+  columns: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default injectSheet(styles)(TableRow);

@@ -12,8 +12,8 @@ const styles = {
   container: {
     border: theme.palette.border,
     borderCollapse: 'collapse',
-    color: theme.palette.textColorPrimary
-  }
+    color: theme.palette.textColorPrimary,
+  },
 };
 
 class Table extends PureComponent {
@@ -24,7 +24,7 @@ class Table extends PureComponent {
     data: Array<Object>,
   };
   state: {
-    sorted?: string,
+    sorted?: string | null,
     data: Array<Object>,
     ascending?: boolean,
   };
@@ -34,7 +34,7 @@ class Table extends PureComponent {
     super();
     this.state = {
       data,
-      sorted: null
+      sorted: null,
     };
     this.sort = this.sort.bind(this);
   }
@@ -44,7 +44,7 @@ class Table extends PureComponent {
       if (prevState.sorted === field) {
         return {
           ascending: !prevState.ascending,
-          data: [...prevState.data].reverse()
+          data: [...prevState.data].reverse(),
         };
       }
       const sortedData = sortFn
@@ -66,7 +66,7 @@ class Table extends PureComponent {
       return {
         sorted: field,
         ascending: true,
-        data: sortedData
+        data: sortedData,
       };
     });
   }
@@ -76,7 +76,7 @@ class Table extends PureComponent {
       this.setState({
         sorted: null,
         ascending: false,
-        data
+        data,
       });
     }
   }
@@ -85,12 +85,12 @@ class Table extends PureComponent {
     const {
       classes,
       className,
-      columns
+      columns,
     } = this.props;
     const {
       data,
       sorted,
-      ascending
+      ascending,
     } = this.state;
 
     return (
@@ -123,8 +123,8 @@ Table.propTypes = {
   columns: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
     field: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.func.isRequired]),
-    sortFn: PropTypes.func
-  })).isRequired
+    sortFn: PropTypes.func,
+  })).isRequired,
 };
 
 export default injectSheet(styles)(Table);

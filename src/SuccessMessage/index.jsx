@@ -14,27 +14,27 @@ const styles = {
     border: theme.palette.borderSuccess,
     color: theme.palette.colorSuccess,
     display: 'flex',
-    maxWidth: 'min-content'
+    maxWidth: 'min-content',
   },
   hide: {
     animation: 'fadeOut 300ms',
-    animationFillMode: 'forwards'
+    animationFillMode: 'forwards',
   },
   '@keyframes fadeOut': {
     '0%': {
-      opacity: 1
+      opacity: 1,
     },
     '100%': {
-      opacity: 0
-    }
-  }
+      opacity: 0,
+    },
+  },
 };
 
 class SuccessMessage extends Component {
   constructor() {
     super();
     this.state = {
-      hide: false
+      hide: false,
     };
     this.hideMessage = this.hideMessage.bind(this);
   }
@@ -42,7 +42,7 @@ class SuccessMessage extends Component {
   componentWillReceiveProps(nextProps) {
     if (this.props.flag !== nextProps.flag && this.state.hide) {
       this.setState({
-        hide: false
+        hide: false,
       });
     }
   }
@@ -53,7 +53,7 @@ class SuccessMessage extends Component {
 
   hideMessage() {
     this.setState({
-      hide: true
+      hide: true,
     });
   }
 
@@ -73,7 +73,7 @@ class SuccessMessage extends Component {
 
 SuccessMessage.propTypes = {
   message: PropTypes.string,
-  flag: PropTypes.bool
+  flag: PropTypes.bool,
 };
 
 export default injectSheet(styles)(SuccessMessage);

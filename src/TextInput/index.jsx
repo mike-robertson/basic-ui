@@ -12,7 +12,7 @@ class TextInput extends PureComponent {
       value,
       onChange,
       placeholder,
-      onClick
+      onClick,
     } = this.props;
 
     return (
@@ -35,7 +35,7 @@ TextInput.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]),
   className: PropTypes.string,
   placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]),
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
 };
 
 export default TextInput;

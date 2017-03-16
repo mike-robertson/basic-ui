@@ -7,7 +7,7 @@ const styles = {};
 const Icon = ({
   classes,
   className,
-  icon
+  icon,
 }) => (
   <div className={classnames(classes.container, className)}>
     {icon}
@@ -17,7 +17,7 @@ const Icon = ({
 Icon.propTypes = {
   classes: PropTypes.object,
   className: PropTypes.string,
-  icon: PropTypes.element
+  icon: PropTypes.element,
 };
 
 export default injectSheet(styles)(Icon);

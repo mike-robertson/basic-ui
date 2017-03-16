@@ -8,7 +8,7 @@ const TextArea = ({
   placeholder,
   value,
   onChange,
-  onClick
+  onClick,
 }) => (
   <FormInput
     tag="textarea"
@@ -27,7 +27,7 @@ TextArea.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]),
   className: PropTypes.string,
   placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]),
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
 };
 
 export default TextArea;
