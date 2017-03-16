@@ -35,8 +35,13 @@ export const submitFocusBorderColor = 'rgb(102, 187, 255)';
 export const submitFocusBackgroundColor = 'rgba(196, 228, 255, 0.3)';
 /* ------------- End Submit ------------------ */
 
+
 export const colorMuted = '#727272';
 export const colorMutedLight = '#B3B3B3';
+
+/* ------------- Start Expandable Container ------------------ */
+export const expandableContainerHeaderHover = colorMuted;
+/* ------------- End Expandable Container ------------------ */
 
 
 export const border = `3px solid ${textColorPrimary}`;

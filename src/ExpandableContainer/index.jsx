@@ -12,6 +12,7 @@ const styles = {
     position: 'relative',
     color: theme.palette.textColorPrimary,
     width: '100%',
+    borderBottom: theme.palette.border,
   },
   hide: {
     display: 'none',
@@ -22,6 +23,7 @@ type PropsType = {
   initialShowValue: boolean,
   // showFlagName: string,
   className: string,
+  headerClassName: string,
   classes: Object,
   children: any,
   title: string,
@@ -55,7 +57,7 @@ class ExpandableContainer extends Component {
   }
 
   render(): React.Element<any> {
-    const { className, classes, title, titleContent, children } = this.props;
+    const { className, headerClassName, classes, title, titleContent, children } = this.props;
     const { show, noRender } = this.state;
 
     return (
@@ -64,6 +66,7 @@ class ExpandableContainer extends Component {
           onClick={this.handleOnClick}
           show={show}
           title={title}
+          className={headerClassName}
         >
           {titleContent}
         </ExpandableContainerHeader>
@@ -79,7 +82,11 @@ class ExpandableContainer extends Component {
 
 ExpandableContainer.propTypes = {
   initialShowValue: PropTypes.bool,
-  // showFlagName: PropTypes.string,
+  className: PropTypes.string,
+  headerClassName: PropTypes.string,
+  children: PropTypes.node.isRequired,
+  title: PropTypes.string,
+  titleContent: PropTypes.node,
 };
 
 const ExpandableContainerWithClasses = injectSheet(styles)(ExpandableContainer);

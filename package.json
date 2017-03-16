@@ -4,7 +4,7 @@
   "description": "A react component library of basic ui components with various themes.",
   "main": "lib/",
   "scripts": {
-    "build": "npm run prebuild && rm -rf lib && babel src --out-dir lib",
+    "build": "rm -rf lib && babel src --out-dir lib",
     "prebuild": "npm run lint && npm run flow",
     "start": "npm run styleguide-server",
     "test": "echo \"Error: no test specified\" && exit 1",

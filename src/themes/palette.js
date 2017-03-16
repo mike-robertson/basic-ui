@@ -39,6 +39,9 @@ export const submitFocusBackgroundColor = 'rgba(196, 228, 255, 0.3)';
 export const colorMuted = '#727272';
 export const colorMutedLight = '#B3B3B3';
 
+/* ------------- Start Expandable Container ------------------ */
+export const expandableContainerHeaderHover = colorMutedLight;
+/* ------------- End Expandable Container ------------------ */
 
 export const border = `3px solid ${textColorPrimary}`;
 export const dashedBorder = `1px dashed ${textColorPrimary}`;

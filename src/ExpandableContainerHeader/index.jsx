@@ -17,8 +17,18 @@ const styles = {
     fontSize: '1.5em',
     justifyContent: 'space-between',
     cursor: 'pointer',
+    minHeight: 100,
 
-    '& svg': {
+    '&:hover': {
+      backgroundColor: theme.palette.expandableContainerHeaderHover,
+    },
+
+    '& > div': {
+      marginLeft: 15,
+    },
+
+    '& > svg': {
+      marginRight: 15,
       transition: theme.palette.transition,
     },
   },
