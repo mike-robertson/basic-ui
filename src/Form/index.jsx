@@ -4,7 +4,7 @@ import injectSheet from 'react-jss';
 
 import theme from '../themes';
 
-const styles = {
+export const styles = {
   fieldset: {
     width: 'fit-content',
 

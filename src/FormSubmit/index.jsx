@@ -6,7 +6,7 @@ import theme from '../themes';
 
 import Button from '../Button';
 
-const styles = {
+export const styles = {
   button: {
     borderColor: theme.palette.submitFocusBorderColor,
     color: theme.palette.submitFocusBorderColor,

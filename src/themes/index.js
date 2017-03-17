@@ -1,4 +1,4 @@
-import * as palette from './darkPalette';
+import * as palette from './palette';
 
 const themeStore = {
   init(palette) {

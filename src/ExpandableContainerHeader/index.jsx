@@ -5,7 +5,7 @@ import injectSheet from 'react-jss';
 import theme from '../themes';
 import ArrowRightIcon from '../Icons/ArrowRight';
 
-const styles = {
+export const styles = {
   container: {
     width: '100%',
     display: 'flex',

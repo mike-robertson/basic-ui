@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import injectSheet from 'react-jss';
 import theme from '../themes';
 
-const styles = {
+export const styles = {
   container: {
     margin: '15px 0',
     padding: '15px 0',

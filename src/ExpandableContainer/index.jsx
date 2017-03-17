@@ -7,7 +7,7 @@ import injectSheet from 'react-jss';
 import theme from '../themes';
 import ExpandableContainerHeader from '../ExpandableContainerHeader';
 
-const styles = {
+export const styles = {
   container: {
     position: 'relative',
     color: theme.palette.textColorPrimary,

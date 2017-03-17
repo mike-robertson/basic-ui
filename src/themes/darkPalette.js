@@ -43,8 +43,13 @@ export const colorMutedLight = '#B3B3B3';
 export const expandableContainerHeaderHover = colorMuted;
 /* ------------- End Expandable Container ------------------ */
 
+/* ------------- Start Dropdown ------------------ */
+export const backgroundColorDropdown = 'rgb(102, 187, 255)';
+export const colorDropdown = '#F5F5F5';
+/* ------------- End Dropdown ------------------ */
 
-export const border = `3px solid ${textColorPrimary}`;
+export const borderWidth = '3px';
+export const border = `${borderWidth} solid ${textColorPrimary}`;
 export const dashedBorder = `1px dashed ${textColorPrimary}`;
 export const borderDanger = `3px solid ${colorDangerTrans}`;
 export const borderSuccess = `3px solid ${colorSuccessTrans}`;

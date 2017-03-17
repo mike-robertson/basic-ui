@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 import injectSheet from 'react-jss';
 
-const styles = {
+export const styles = {
   container: {
     display: 'flex',
     flexDirection: 'row',

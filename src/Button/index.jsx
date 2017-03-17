@@ -5,7 +5,7 @@ import injectSheet from 'react-jss';
 import ButtonLoading from '../Icons/ButtonLoading';
 import theme from '../themes';
 
-const styles = {
+export const styles = {
   container: {
     outline: 'none',
     fontSize: 16,

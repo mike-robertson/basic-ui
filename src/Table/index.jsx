@@ -8,7 +8,7 @@ import TableHeaderCell from '../TableHeaderCell';
 import TableRow from '../TableRow';
 import theme from '../themes';
 
-const styles = {
+export const styles = {
   container: {
     border: theme.palette.border,
     borderCollapse: 'collapse',

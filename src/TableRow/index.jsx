@@ -6,7 +6,7 @@ import injectSheet from 'react-jss';
 
 import TableCell from '../TableCell';
 
-const styles = {};
+export const styles = {};
 
 type PropsType = {
   classes: Object,

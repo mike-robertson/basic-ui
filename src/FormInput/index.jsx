@@ -5,7 +5,7 @@ import { v4 as uuid } from 'uuid';
 import injectSheet from 'react-jss';
 import theme from '../themes';
 
-const styles = {
+export const styles = {
   container: {
     display: 'flex',
     flexDirection: 'column',

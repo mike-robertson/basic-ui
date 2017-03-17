@@ -2,11 +2,12 @@ import React, { PropTypes } from 'react';
 
 import theme from '../themes';
 
-const Loading = ({ className }) => (
+const Loading = ({ className, ...rest }) => (
   <svg
     className={className}
     version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
     width="24px" height="30px" viewBox="0 0 24 30" style={{ enableBackground: 'new 0 0 50 50' }}
+    {...rest}
   >
     <rect x="0" y="0" width="4" height="10" fill={theme.palette.textColorPrimary}>
       <animateTransform
