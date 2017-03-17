@@ -10,10 +10,7 @@ type PropsType = {
   classes: Object,
   className: string,
   onDelete: () => void,
-  data: {
-    label: string,
-    id: string | number,
-  },
+  data: Object,
 };
 
 const Chip = ({
