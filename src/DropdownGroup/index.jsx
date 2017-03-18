@@ -39,6 +39,10 @@ export const styles = {
     backgroundColor: theme.palette.backgroundColorDropdown,
     color: theme.palette.colorDropdown,
     cursor: 'auto',
+
+    '&:hover': {
+      backgroundColor: 'inherit',
+    },
   },
 };
 

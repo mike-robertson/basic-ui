@@ -12,9 +12,9 @@ import { styles as stylesTextInput } from '../FormInput';
 import theme from '../themes';
 
 const zIndexCounter = {
-  value: 1,
-  increment() {
-    this.value = this.value + 1;
+  value: 1000,
+  decrement() {
+    this.value = this.value - 1;
   },
 };
 
@@ -72,7 +72,11 @@ class Select extends Component {
       showDropdown: false,
     };
     this.zIndex = props.initialZIndex + zIndexCounter.value;
-    zIndexCounter.increment();
+    // Why do we do this? What if you have multiple select components in a row? If you do zIndex
+    // will be useless because the components all have the same number, so they default to regular
+    // position in dom. We want the dropdown to always appear above everything though! Maybe there is a
+    // better way to acheive this...
+    zIndexCounter.decrement();
     this.onClick = this.onClick.bind(this);
     this.clickInComponent = this.clickInComponent.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
