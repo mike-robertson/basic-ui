@@ -19,7 +19,7 @@ const Dropdown = ({
   const makeDropdownItem = dropdownItemFactory(onClick);
 
   return (
-    <div className={classnames(classes.container, className)}>
+    <div className={classnames(classes.container, className)} ref={node => { this.node = node; }}>
       {groups
         ? groups.map(group => (
           <DropdownGroup group={group}>
