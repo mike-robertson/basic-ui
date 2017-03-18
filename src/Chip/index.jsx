@@ -40,7 +40,7 @@ const styles = {
     backgroundColor: theme.palette.backgroundColorDropdown,
     color: theme.palette.colorDropdown,
     padding: '5px 10px',
-    // border: theme.palette.border,
+    alignItems: 'center',
     borderRadius: 15,
     display: 'flex',
     justifyContent: 'space-between',

@@ -65,6 +65,7 @@ const styles = {
     paddingRight: `calc(${theme.palette.borderWidth} + ${theme.palette.borderWidth})`,
     boxSizing: 'border-box',
     overflowWrap: 'break-word',
+    zIndex: 1,
   },
 };
 

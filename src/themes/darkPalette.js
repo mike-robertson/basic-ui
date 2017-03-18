@@ -10,6 +10,8 @@ export const colorDangerTrans = 'rgba(255, 76, 76, 0.9)';
 export const warningColor = '#FCA326';
 // export const warningColor = '#FCA326';
 
+export const lightHoverBackgroundColor = 'rgba(128,128,128,0.2)';
+
 /* -------------- Interactive -------------------- */
 
 export const interactiveBGC = 'rgba(0, 0, 0, 0)';

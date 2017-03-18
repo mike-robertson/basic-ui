@@ -9,6 +9,14 @@ import injectSheet from 'react-jss';
 import Chip from '../Chip';
 import Dropdown from '../Dropdown';
 import { styles as stylesTextInput } from '../FormInput';
+import theme from '../themes';
+
+const zIndexCounter = {
+  value: 1,
+  increment() {
+    this.value = this.value + 1;
+  },
+};
 
 type Option = {
   id: string | number,
@@ -21,6 +29,15 @@ type Group = {
   label: string,
 };
 
+type Props = {
+  classes: Object,
+  className?: string,
+  options: Array<Option>,
+  groups: Array<Group>,
+  initialZIndex: ?number,
+  onChange: () => void,
+};
+
 class Select extends Component {
   state: {
     inputValue: string,
@@ -28,17 +45,15 @@ class Select extends Component {
     selected: Array<Option>,
     showDropdown: boolean,
   };
-  props: {
-    classes: Object,
-    className?: string,
-    options: Array<Option>,
-    groups: Array<Group>,
-    onChange: () => void,
-  }
+  static defaultProps: {
+    initialZIndex: number,
+  };
+  props: Props;
   container: any;
   input: any;
   dropdown: any;
   itemJustSelected: ?boolean;
+  zIndex: number;
   onClick: () => void;
   clickInComponent: () => void;
   onInputChange: () => void;
@@ -48,7 +63,7 @@ class Select extends Component {
 
   static get defaultInputWidth(): number { return 25; }
 
-  constructor() {
+  constructor(props: Props) {
     super();
     this.state = {
       inputValue: '',
@@ -56,7 +71,8 @@ class Select extends Component {
       selected: [],
       showDropdown: false,
     };
-
+    this.zIndex = props.initialZIndex + zIndexCounter.value;
+    zIndexCounter.increment();
     this.onClick = this.onClick.bind(this);
     this.clickInComponent = this.clickInComponent.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
@@ -143,6 +159,7 @@ class Select extends Component {
         className={classnames(classes.container, className)}
         onClick={this.onClick}
         ref={container => { this.container = container; }}
+        style={{ zIndex: this.zIndex }}
       >
         {selected.map(item => (
           <Chip
@@ -185,6 +202,10 @@ Select.propTypes = {
   })),
 };
 
+Select.defaultProps = {
+  initialZIndex: 1000,
+};
+
 export const styles = {
   container: {
     ...stylesTextInput.input,
@@ -198,10 +219,12 @@ export const styles = {
     outline: 'none',
     border: 0,
     fontSize: 16,
+    backgroundColor: theme.palette.textColorSecondary,
+    color: theme.palette.textColorPrimary,
   },
   inputItem: {
     margin: '0.2em',
   },
 };
 
-export default injectSheet(styles)(Select);
+export default (injectSheet(styles)(Select): ReactClass<Props>);
