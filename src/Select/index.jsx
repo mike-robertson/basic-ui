@@ -223,7 +223,7 @@ export const styles = {
     outline: 'none',
     border: 0,
     fontSize: 16,
-    backgroundColor: theme.palette.textColorSecondary,
+    backgroundColor: 'rgba(0, 0, 0, 0)',
     color: theme.palette.textColorPrimary,
   },
   inputItem: {

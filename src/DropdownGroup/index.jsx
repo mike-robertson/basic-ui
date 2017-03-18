@@ -41,7 +41,7 @@ export const styles = {
     cursor: 'auto',
 
     '&:hover': {
-      backgroundColor: 'inherit',
+      backgroundColor: theme.palette.backgroundColorDropdown,
     },
   },
 };

@@ -66,6 +66,7 @@ const styles = {
     boxSizing: 'border-box',
     overflowWrap: 'break-word',
     zIndex: 1,
+    backgroundColor: theme.palette.textColorSecondary,
   },
 };
 
