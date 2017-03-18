@@ -99,9 +99,15 @@ class Select extends Component {
   }
 
   deleteChip(id: string | number) {
-    this.setState(({ selected }) => ({
-      selected: selected.filter(item => item.id !== id),
-    }));
+    const { onChange } = this.props;
+    this.setState(({ selected }) => {
+      const newSelected = selected.filter(item => item.id !== id);
+      onChange(newSelected);
+
+      return {
+        selected: newSelected,
+      };
+    });
   }
 
   selectItem(id: string | number) {
