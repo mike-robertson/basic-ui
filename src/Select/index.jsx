@@ -105,12 +105,17 @@ class Select extends Component {
   }
 
   selectItem(id: string | number) {
-    const { options } = this.props;
+    const { options, onChange } = this.props;
     this.itemJustSelected = true;
-    this.setState(({ selected }) => ({
-      selected: selected.concat(options.find(option => id === option.id)),
-      showDropdown: true,
-    }));
+    this.setState(({ selected }) => {
+      const newSelected = selected.concat(options.find(option => id === option.id));
+      onChange(newSelected);
+
+      return {
+        selected: newSelected,
+        showDropdown: true,
+      };
+    });
   }
 
   render(): React.Element<any> {
