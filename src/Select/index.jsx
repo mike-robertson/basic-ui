@@ -214,6 +214,7 @@ class Select extends Component {
         >
           {selected.map(item => (
             <Chip
+              key={item.id}
               data={item}
               onDelete={this.deleteChip}
               className={classes.inputItem}
