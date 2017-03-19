@@ -1,25 +1,11 @@
 // @flow
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import classnames from 'classnames';
-import { v4 as uuid } from 'uuid';
 import injectSheet from 'react-jss';
 import theme from '../themes';
+import LabeledItem from '../LabeledItem';
 
 export const styles = {
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    fontSize: '1em',
-    justifyContent: 'flex-end',
-
-    '& > label': {
-      color: theme.palette.textColorPrimary,
-      textTransform: 'uppercase',
-      order: -5,
-      transition: theme.palette.transition,
-    },
-  },
   centerText: {
     textAlign: 'center',
   },
@@ -30,67 +16,49 @@ export const styles = {
     border: theme.palette.border,
     padding: '0.4em',
     fontSize: '1.2em',
-    transition: theme.palette.transition,
-    '&:focus': {
-      borderColor: theme.palette.interactiveFocusBorderColor,
-    },
-    '&:focus ~ label': {
-      color: theme.palette.interactiveFocusBorderColor,
-    },
   },
 };
 
-class FormInput extends PureComponent {
-  id: string;
-  props: {
-    tag: string | () => void,
-    onChange: () => void,
-    label: string,
-    type: string,
-    value: string | boolean | number,
-    className: string,
-    placeholder: string | number | boolean,
-    classes: Object,
-    center: boolean,
-    onClick: () => void,
-  };
+type Props = {
+  tag: string | () => void,
+  onChange: () => void,
+  label: string,
+  type: string,
+  value: string | boolean | number,
+  className: string,
+  placeholder: string | number | boolean,
+  classes: Object,
+  center: boolean,
+  onClick: () => void,
+};
 
-  constructor() {
-    super();
-    this.id = uuid();
-  }
-
-  render(): React.Element<any> {
-    const {
-      tag,
-      onChange,
-      label,
-      type = 'text',
-      value,
-      className,
-      placeholder,
-      classes,
-      center,
-      onClick,
-    } = this.props;
-    const Tag = tag || 'input';
-    const isInput = (Tag === 'input' || Tag === 'textarea') && type.toLowerCase() !== 'submit';
-    return (
-      <div className={classes.container}>
-        <Tag
-          onClick={onClick}
-          id={this.id}
-          value={value}
-          type={type}
-          onChange={onChange}
-          placeholder={placeholder}
-          className={classnames(center && classes.centerText, isInput && classes.input, className)}
-        />
-        {label && <label htmlFor={this.id}>{label}</label>}
-      </div>
-    );
-  }
-}
+const FormInput = ({
+  tag,
+  onChange,
+  label,
+  type = 'text',
+  value,
+  className,
+  placeholder,
+  classes,
+  center,
+  onClick,
+}: Props) => {
+  const Tag = tag || 'input';
+  const isInput = (Tag === 'input' || Tag === 'textarea') && type.toLowerCase() !== 'submit';
+  return (
+    <LabeledItem label={label}>
+      <Tag
+        onClick={onClick}
+        value={value}
+        type={type}
+        onChange={onChange}
+        placeholder={placeholder}
+        className={classnames(center && classes.centerText, isInput && classes.input, className)}
+      />
+    </LabeledItem>
+  );
+};
 
 FormInput.propTypes = {
   tag: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),

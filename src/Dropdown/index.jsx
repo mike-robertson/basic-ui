@@ -1,3 +1,4 @@
+// @flow
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 import injectSheet from 'react-jss';
@@ -18,19 +19,25 @@ const Dropdown = ({
 }) => {
   const makeDropdownItem = dropdownItemFactory(onClick);
 
+  let renderedItem;
+  if (items && items.length === 0) {
+    renderedItem = <div className={classes.noItems}><i>There are no items to select.</i></div>;
+  } else if (groups) {
+    renderedItem = groups.map(group => (
+      <DropdownGroup group={group}>
+        {items
+          .filter(item => item.groupId === group.id)
+          .map(makeDropdownItem)
+        }
+      </DropdownGroup>
+    ));
+  } else {
+    renderedItem = items.map(makeDropdownItem);
+  }
+
   return (
-    <div className={classnames(classes.container, className)} ref={node => { this.node = node; }}>
-      {groups
-        ? groups.map(group => (
-          <DropdownGroup group={group}>
-            {items
-              .filter(item => item.groupId === group.id)
-              .map(makeDropdownItem)
-            }
-          </DropdownGroup>
-        ))
-        : items.map(makeDropdownItem)
-      }
+    <div className={classnames(classes.container, className)}>
+      {renderedItem}
     </div>
   );
 };
@@ -56,8 +63,8 @@ const styles = {
     width: `calc(100% + ${theme.palette.borderWidth} + ${theme.palette.borderWidth})`,
     left: 0,
     top: '100%',
-    fontSize: '1.2em',
-    maxHeight: 400,
+    fontSize: '1em',
+    maxHeight: 300,
     overflowY: 'auto',
     border: theme.palette.border,
     marginLeft: `-${theme.palette.borderWidth}`,
@@ -67,6 +74,9 @@ const styles = {
     overflowWrap: 'break-word',
     zIndex: 1,
     backgroundColor: theme.palette.textColorSecondary,
+  },
+  noItems: {
+    padding: 5,
   },
 };
 

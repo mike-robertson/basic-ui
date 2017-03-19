@@ -39,6 +39,7 @@ export const styles = {
     backgroundColor: theme.palette.backgroundColorDropdown,
     color: theme.palette.colorDropdown,
     cursor: 'auto',
+    borderBottom: 'none',
 
     '&:hover': {
       backgroundColor: theme.palette.backgroundColorDropdown,

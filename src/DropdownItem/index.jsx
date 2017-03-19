@@ -36,9 +36,14 @@ export const styles = {
     width: '100%',
     padding: 5,
     cursor: 'pointer',
+    borderBottom: theme.palette.dashedBorder,
 
     '&:hover': {
       backgroundColor: theme.palette.lightHoverBackgroundColor,
+    },
+
+    '&:last-child': {
+      borderBottom: 'none',
     },
   },
 };

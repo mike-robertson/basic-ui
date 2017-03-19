@@ -6,6 +6,7 @@ import classnames from 'classnames';
 import injectSheet from 'react-jss';
 
 // import theme from '../themes';
+import LabeledItem from '../LabeledItem';
 import Chip from '../Chip';
 import Dropdown from '../Dropdown';
 import { styles as stylesTextInput } from '../FormInput';
@@ -37,6 +38,7 @@ type Props = {
   selected: Array<Option>,
   initialZIndex: ?number,
   onChange: () => void,
+  label?: string,
 };
 
 class Select extends Component {
@@ -157,6 +159,7 @@ class Select extends Component {
       className,
       options,
       groups,
+      label,
     } = this.props;
     const {
       inputWidth,
@@ -166,35 +169,37 @@ class Select extends Component {
     } = this.state;
 
     return (
-      <div
-        className={classnames(classes.container, className)}
-        onClick={this.onClick}
-        ref={container => { this.container = container; }}
-        style={{ zIndex: this.zIndex }}
-      >
-        {selected.map(item => (
-          <Chip
-            data={item}
-            onDelete={this.deleteChip}
-            className={classes.inputItem}
+      <LabeledItem label={label}>
+        <div
+          className={classnames(classes.container, className)}
+          onClick={this.onClick}
+          ref={container => { this.container = container; }}
+          style={{ zIndex: this.zIndex }}
+        >
+          {selected.map(item => (
+            <Chip
+              data={item}
+              onDelete={this.deleteChip}
+              className={classes.inputItem}
+            />
+            ))}
+          <input
+            ref={input => { this.input = input; }}
+            className={classnames(classes.input, classes.inputItem)}
+            style={{ width: inputWidth }}
+            onChange={this.onInputChange}
+            value={inputValue}
           />
-        ))}
-        <input
-          ref={input => { this.input = input; }}
-          className={classnames(classes.input, classes.inputItem)}
-          style={{ width: inputWidth }}
-          onChange={this.onInputChange}
-          value={inputValue}
-        />
-        {showDropdown && (
-          <Dropdown
-            ref={dropdown => { this.dropdown = dropdown; }}
-            items={options.filter(option => !selected.find(({ id }) => id === option.id))}
-            groups={groups}
-            onClick={this.selectItem}
-          />
-        )}
-      </div>
+          {showDropdown && (
+            <Dropdown
+              ref={dropdown => { this.dropdown = dropdown; }}
+              items={options.filter(option => !selected.find(({ id }) => id === option.id))}
+              groups={groups}
+              onClick={this.selectItem}
+            />
+          )}
+        </div>
+      </LabeledItem>
     );
   }
 }
@@ -202,6 +207,7 @@ class Select extends Component {
 Select.propTypes = {
   classes: PropTypes.object,
   className: PropTypes.string,
+  label: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
@@ -224,12 +230,13 @@ export const styles = {
     display: 'flex',
     flexWrap: 'wrap',
     position: 'relative',
+    width: '100%',
   },
   input: {
     overflowX: 'hidden',
     outline: 'none',
     border: 0,
-    fontSize: 16,
+    fontSize: '1em',
     backgroundColor: 'rgba(0, 0, 0, 0)',
     color: theme.palette.textColorPrimary,
   },
@@ -238,4 +245,4 @@ export const styles = {
   },
 };
 
-export default (injectSheet(styles)(Select): ReactClass<Props>);
+export default injectSheet(styles)(Select);
