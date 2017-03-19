@@ -44,6 +44,7 @@ const styles = {
     borderRadius: 15,
     display: 'flex',
     justifyContent: 'space-between',
+    cursor: 'default',
   },
   label: {
     marginRight: 10,

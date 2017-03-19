@@ -4,8 +4,8 @@ import React, { Component, PropTypes } from 'react';
 
 import classnames from 'classnames';
 import injectSheet from 'react-jss';
+import fuzzy from 'fuzzy';
 
-// import theme from '../themes';
 import LabeledItem from '../LabeledItem';
 import Chip from '../Chip';
 import Dropdown from '../Dropdown';
@@ -128,10 +128,11 @@ class Select extends Component {
   }
 
   deleteChip(id: string | number) {
-    const { onChange } = this.props;
-    this.setState(({ selected }) => {
+    this.setState(({ selected }, { onChange }) => {
       const newSelected = selected.filter(item => item.id !== id);
-      onChange(newSelected);
+      if (onChange) {
+        onChange(newSelected);
+      }
 
       return {
         selected: newSelected,
@@ -140,11 +141,12 @@ class Select extends Component {
   }
 
   selectItem(id: string | number) {
-    const { options, onChange } = this.props;
     this.itemJustSelected = true;
-    this.setState(({ selected }) => {
+    this.setState(({ selected }, { options, onChange }) => {
       const newSelected = selected.concat(options.find(option => id === option.id));
-      onChange(newSelected);
+      if (onChange) {
+        onChange(newSelected);
+      }
 
       return {
         selected: newSelected,
@@ -193,7 +195,11 @@ class Select extends Component {
           {showDropdown && (
             <Dropdown
               ref={dropdown => { this.dropdown = dropdown; }}
-              items={options.filter(option => !selected.find(({ id }) => id === option.id))}
+              items={fuzzy.filter(
+                inputValue,
+                options.filter(option => !selected.find(({ id }) => id === option.id)),
+                { extract: item => item.label }
+              ).map(result => result.original)}
               groups={groups}
               onClick={this.selectItem}
             />
@@ -231,6 +237,7 @@ export const styles = {
     flexWrap: 'wrap',
     position: 'relative',
     width: '100%',
+    cursor: 'text',
   },
   input: {
     overflowX: 'hidden',
