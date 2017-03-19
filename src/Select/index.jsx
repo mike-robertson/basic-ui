@@ -173,7 +173,7 @@ class Select extends Component {
     return (
       <LabeledItem label={label}>
         <div
-          className={classnames(classes.container, className)}
+          className={classnames(classes.container, { [classes.focused]: showDropdown }, className)}
           onClick={this.onClick}
           ref={container => { this.container = container; }}
           style={{ zIndex: this.zIndex }}
@@ -202,6 +202,7 @@ class Select extends Component {
               ).map(result => result.original)}
               groups={groups}
               onClick={this.selectItem}
+              className={classnames({ [classes.focused]: showDropdown })}
             />
           )}
         </div>
@@ -249,6 +250,13 @@ export const styles = {
   },
   inputItem: {
     margin: '0.2em',
+  },
+  focused: {
+    transition: theme.palette.transition,
+    borderColor: theme.palette.interactiveFocusBorderColor,
+    '& ~ label': {
+      color: theme.palette.interactiveFocusBorderColor,
+    },
   },
 };
 

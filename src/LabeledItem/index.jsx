@@ -53,7 +53,7 @@ class LabeledItem extends PureComponent {
       classes,
       children,
     } = this.props;
-    console.log(React.cloneElement(React.Children.only(children), { id: this.id }));
+
     return (
       <div className={classnames(classes.container, className)}>
         {React.cloneElement(React.Children.only(children), { id: this.id })}

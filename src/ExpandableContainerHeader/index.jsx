@@ -20,7 +20,7 @@ export const styles = {
     minHeight: 100,
 
     '&:hover': {
-      backgroundColor: theme.palette.expandableContainerHeaderHover,
+      backgroundColor: theme.palette.lightHoverBackgroundColor,
     },
 
     '& > div': {
