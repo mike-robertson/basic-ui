@@ -41,6 +41,12 @@ type Props = {
   label?: string,
 };
 
+const fuzzyFilter = (inputValue, selected, options): Array<Option> => fuzzy.filter(
+    inputValue,
+    options.filter(option => !selected.find(({ id }) => id === option.id)),
+    { extract: item => item.label }
+  ).map(result => result.original);
+
 class Select extends Component {
   state: {
     inputValue: string,
@@ -62,6 +68,8 @@ class Select extends Component {
   onInputChange: () => void;
   deleteChip: () => void;
   selectItem: () => void;
+  selectItemFromKeypress: () => void;
+  fuzzyFilter: () => Array<Option>;
 
 
   static get defaultInputWidth(): number { return 25; }
@@ -85,6 +93,7 @@ class Select extends Component {
     this.onInputChange = this.onInputChange.bind(this);
     this.deleteChip = this.deleteChip.bind(this);
     this.selectItem = this.selectItem.bind(this);
+    this.selectItemFromKeypress = this.selectItemFromKeypress.bind(this);
   }
 
   componentDidMount() {
@@ -151,8 +160,33 @@ class Select extends Component {
       return {
         selected: newSelected,
         showDropdown: true,
+        inputValue: '',
       };
     });
+  }
+
+  selectItemFromKeypress(event: Event) {
+    if (event.key === 'Enter') {
+      this.setState(({ inputValue, selected }, { onChange, options }) => {
+        if (inputValue.length === 0) {
+          return null;
+        }
+        const results = fuzzyFilter(inputValue, selected, options);
+
+        if (results && results.length > 0) {
+          const newSelected = selected.concat(results[0]);
+          if (onChange) {
+            onChange(newSelected);
+          }
+
+          return {
+            seleted: newSelected,
+            inputValue: '',
+          };
+        }
+        return null;
+      });
+    }
   }
 
   render(): React.Element<any> {
@@ -191,15 +225,12 @@ class Select extends Component {
             style={{ width: inputWidth }}
             onChange={this.onInputChange}
             value={inputValue}
+            onKeyPress={this.selectItemFromKeypress}
           />
           {showDropdown && (
             <Dropdown
               ref={dropdown => { this.dropdown = dropdown; }}
-              items={fuzzy.filter(
-                inputValue,
-                options.filter(option => !selected.find(({ id }) => id === option.id)),
-                { extract: item => item.label }
-              ).map(result => result.original)}
+              items={fuzzyFilter(inputValue, selected, options)}
               groups={groups}
               onClick={this.selectItem}
               className={classnames({ [classes.focused]: showDropdown })}

@@ -78,6 +78,7 @@ const styles = {
   },
   noItems: {
     padding: 5,
+    cursor: 'default',
   },
 };
 

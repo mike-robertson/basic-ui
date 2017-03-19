@@ -62,7 +62,7 @@ const Button = ({
     <Tag
       {...buttonProps}
       onClick={onClick}
-      className={classnames(className, classes.container)}
+      className={classnames(classes.container, className)}
     >{loading ? <ButtonLoading /> : children}</Tag>
   );
 };
