@@ -34,6 +34,7 @@ type Props = {
   className?: string,
   options: Array<Option>,
   groups: Array<Group>,
+  selected: Array<Option>,
   initialZIndex: ?number,
   onChange: () => void,
 };
@@ -86,6 +87,12 @@ class Select extends Component {
 
   componentDidMount() {
     document.addEventListener('click', this.clickInComponent);
+  }
+
+  componentWillReceiveProps({ selected }: { selected: Array<Option> }) {
+    if (selected !== this.props.selected) {
+      this.setState({ selected });
+    }
   }
 
   componentWillUnmount() {
