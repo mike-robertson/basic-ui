@@ -30,7 +30,7 @@ class TextInput extends PureComponent {
 }
 
 TextInput.propTypes = {
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
   label: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]),
   className: PropTypes.string,

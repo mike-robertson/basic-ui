@@ -5,6 +5,51 @@ import injectSheet from 'react-jss';
 import ButtonLoading from '../Icons/ButtonLoading';
 import theme from '../themes';
 
+type PropsType = {
+  onClick: void,
+  classes: any,
+  className: string,
+  tag: string | void,
+  children: React.Element<any>,
+  sheet: Object,
+  buttonProps?: any,
+  loading: boolean,
+  center?: boolean,
+};
+
+
+const Button = ({
+  onClick,
+  classes,
+  className,
+  tag,
+  children,
+  // eslint-disable-next-line no-unused-vars
+  sheet,
+  // eslint-disable-next-line no-unused-vars
+  center,
+  loading,
+  ...buttonProps
+}: PropsType): React.Element<any> => {
+  const Tag = tag || 'button';
+
+  return (
+    <Tag
+      {...buttonProps}
+      onClick={onClick}
+      className={classnames(classes.container, className)}
+    >{loading ? <ButtonLoading /> : children}</Tag>
+  );
+};
+
+Button.propTypes = {
+  onClick: PropTypes.func,
+  className: PropTypes.string,
+  tag: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+  loading: PropTypes.bool,
+  children: PropTypes.node.isRequired,
+};
+
 export const styles = {
   container: {
     outline: 'none',
@@ -31,48 +76,6 @@ export const styles = {
       backgroundColor: theme.palette.interactiveActiveBGC,
     },
   },
-};
-
-type PropsType = {
-  onClick: void,
-  classes: any,
-  className: string,
-  tag: string | void,
-  children: React.Element<any>,
-  sheet: Object,
-  buttonProps?: any,
-  loading: boolean,
-};
-
-
-const Button = ({
-  onClick,
-  classes,
-  className,
-  tag,
-  children,
-  // eslint-disable-next-line no-unused-vars
-  sheet,
-  loading,
-  ...buttonProps
-}: PropsType): React.Element<any> => {
-  const Tag = tag || 'button';
-
-  return (
-    <Tag
-      {...buttonProps}
-      onClick={onClick}
-      className={classnames(classes.container, className)}
-    >{loading ? <ButtonLoading /> : children}</Tag>
-  );
-};
-
-Button.propTypes = {
-  onClick: PropTypes.func,
-  className: PropTypes.string,
-  tag: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
-  loading: PropTypes.bool,
-  children: PropTypes.node.isRequired,
 };
 
 export default injectSheet(styles)(Button);
