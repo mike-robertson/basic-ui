@@ -24,7 +24,7 @@ const Dropdown = ({
     renderedItem = <div className={classes.noItems}><i>There are no items to select.</i></div>;
   } else if (groups) {
     renderedItem = groups.map(group => (
-      <DropdownGroup group={group}>
+      <DropdownGroup key={group.id} group={group}>
         {items
           .filter(item => item.groupId === group.id)
           .map(makeDropdownItem)
