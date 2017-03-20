@@ -79,7 +79,7 @@ class Select extends Component {
     this.state = {
       inputValue: '',
       inputWidth: Select.defaultInputWidth,
-      selected: [],
+      selected: props.selected || [],
       showDropdown: false,
     };
     this.zIndex = props.initialZIndex + zIndexCounter.value;
