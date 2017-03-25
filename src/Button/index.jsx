@@ -10,7 +10,7 @@ type PropsType = {
   classes: any,
   className: string,
   tag: string | void,
-  children: React.Element<any>,
+  children: React.Children,
   sheet: Object,
   buttonProps?: any,
   loading: boolean,

@@ -5,6 +5,7 @@ import { v4 as uuid } from 'uuid';
 import injectSheet from 'react-jss';
 import theme from '../themes';
 
+
 export const styles = {
   container: {
     display: 'flex',
@@ -36,9 +37,9 @@ class LabeledItem extends PureComponent {
   id: string;
   props: {
     label: string,
-    className: string,
+    className?: string,
     classes: Object,
-    children: React.Element<any>,
+    children: React.Children,
   };
 
   constructor() {

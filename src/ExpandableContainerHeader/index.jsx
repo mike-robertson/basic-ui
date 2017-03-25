@@ -49,7 +49,7 @@ type PropsType = {
   onClick: () => void,
   classes: Object,
   title: string,
-  children: React.Element<any>,
+  children: React.Children,
   show: boolean,
 };
 
