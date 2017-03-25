@@ -1,0 +1,69 @@
+declare type ThemeType = {
+  palette: Object,
+};
+
+declare type PaletteType = {
+  textColorPrimary: string,
+  textColorSecondary: string,
+
+  colorSuccess: string,
+  colorSuccessTrans: string,
+
+  colorDanger: string,
+  colorDangerTrans: string,
+
+  warningColor: string,
+  // warningColor: string,
+
+  lightHoverBackgroundColor: string,
+
+  /* -------------- Interactive -------------------- */
+
+  interactiveBGC: string,
+  // interactiveBGC: string,
+
+  interactiveHoverBorderColor: string,
+  interactiveHoverColor: string,
+  interactiveHoverBGC: string,
+  // interactiveHoverBGC: string,
+
+  interactiveFocusBorderColor: string,
+  interactiveFocusBackgroundColor: string,
+  // interactiveFocusBorderColor: string,
+  // interactiveFocusBGC: string,
+  // interactiveFocusColor: string,
+
+  interactiveActiveBGC: string,
+  /* ------------- End Interactive ------------------ */
+
+  /* ------------- Start Submit ------------------ */
+
+  submitFocusBorderColor: string,
+  submitFocusBackgroundColor: string,
+  /* ------------- End Submit ------------------ */
+
+
+  colorMuted: string,
+  colorMutedLight: string,
+
+  /* ------------- Start Expandable Container ------------------ */
+  expandableContainerHeaderHover: string,
+  /* ------------- End Expandable Container ------------------ */
+
+  /* ------------- Start Dropdown ------------------ */
+  backgroundColorDropdown: string,
+  colorDropdown: string,
+  /* ------------- End Dropdown ------------------ */
+
+  borderWidth: string,
+  border: string,
+  dashedBorder: string,
+  borderDanger: string,
+  borderSuccess: string,
+
+  buttonPadding: string,
+  tableCellPadding: string,
+
+  transition: string,
+
+};
