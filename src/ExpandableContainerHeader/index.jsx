@@ -1,8 +1,9 @@
 // @flow
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
-import injectSheet from 'react-jss';
-import theme from '../themes';
+
+
+import { injectSheet } from '../themes';
 import ArrowRightIcon from '../Icons/ArrowRight';
 
 export const styles = {
@@ -20,7 +21,7 @@ export const styles = {
     minHeight: 100,
 
     '&:hover': {
-      backgroundColor: theme.palette.lightHoverBackgroundColor,
+      backgroundColor: (palette: PaletteType): string => palette.lightHoverBackgroundColor,
     },
 
     '& > div': {
@@ -29,7 +30,7 @@ export const styles = {
 
     '& > svg': {
       marginRight: 15,
-      transition: theme.palette.transition,
+      transition: (palette: PaletteType): string => palette.transition,
     },
   },
   titleAndContent: {

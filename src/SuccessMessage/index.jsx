@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
-import injectSheet from 'react-jss';
-import theme from '../themes';
+
+
+import { injectSheet } from '../themes';
 
 export const styles = {
   container: {
@@ -9,10 +10,10 @@ export const styles = {
     zIndex: 10,
     top: 50,
     right: 50,
-    backgroundColor: theme.palette.interactiveBGC,
+    ['background-Color']: palette => palette.interactiveBGC,
     padding: 15,
-    border: theme.palette.borderSuccess,
-    color: theme.palette.colorSuccess,
+    border: palette => palette.borderSuccess,
+    color: palette => palette.colorSuccess,
     display: 'flex',
     maxWidth: 'min-content',
   },

@@ -1,16 +1,15 @@
 // @flow
 
 import React, { Component, PropTypes } from 'react';
-
 import classnames from 'classnames';
-import injectSheet from 'react-jss';
 import fuzzy from 'fuzzy';
+
 
 import LabeledItem from '../LabeledItem';
 import Chip from '../Chip';
 import Dropdown from '../Dropdown';
 import { styles as stylesTextInput } from '../FormInput';
-import theme from '../themes';
+import { injectSheet } from '../themes';
 
 const zIndexCounter = {
   value: 1000,
@@ -278,16 +277,16 @@ export const styles = {
     border: 0,
     fontSize: '1em',
     backgroundColor: 'rgba(0, 0, 0, 0)',
-    color: theme.palette.textColorPrimary,
+    color: (palette: PaletteType): string => palette.textColorPrimary,
   },
   inputItem: {
     margin: '0.2em',
   },
   focused: {
-    transition: theme.palette.transition,
-    borderColor: theme.palette.interactiveFocusBorderColor,
+    transition: (palette: PaletteType): string => palette.transition,
+    borderColor: (palette: PaletteType): string => palette.interactiveFocusBorderColor,
     '& ~ label': {
-      color: theme.palette.interactiveFocusBorderColor,
+      color: (palette: PaletteType): string => palette.interactiveFocusBorderColor,
     },
   },
 };

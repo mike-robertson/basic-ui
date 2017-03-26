@@ -1,11 +1,11 @@
 // @flow
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
-import injectSheet from 'react-jss';
+
 
 import DropdownItem from '../DropdownItem';
 import DropdownGroup from '../DropdownGroup';
-import theme from '../themes';
+import { injectSheet } from '../themes';
 
 const dropdownItemFactory = onClick =>
   item => <DropdownItem item={item} key={item.id} onClick={onClick} />;
@@ -60,21 +60,21 @@ Dropdown.propTypes = {
 const styles = {
   container: {
     position: 'absolute',
-    width: `calc(100% + ${theme.palette.borderWidth} + ${theme.palette.borderWidth})`,
+    width: (theme: ThemeType): string => `calc(100% + ${theme.palette.borderWidth} + ${theme.palette.borderWidth})`,
     left: 0,
-    top: `calc(100% + ${theme.palette.borderWidth})`,
+    top: (theme: ThemeType): string => `calc(100% + ${theme.palette.borderWidth})`,
     fontSize: '1em',
     maxHeight: 300,
     overflowY: 'auto',
-    border: theme.palette.border,
+    border: (palette: PaletteType): string => palette.border,
     borderTop: 'none',
-    marginLeft: `-${theme.palette.borderWidth}`,
+    marginLeft: (theme: ThemeType): string => `-${theme.palette.borderWidth}`,
     overflowX: 'hidden',
-    paddingRight: `calc(${theme.palette.borderWidth} + ${theme.palette.borderWidth})`,
+    paddingRight: (theme: ThemeType): string => `calc(${theme.palette.borderWidth} + ${theme.palette.borderWidth})`,
     boxSizing: 'border-box',
     overflowWrap: 'break-word',
     zIndex: 1,
-    backgroundColor: theme.palette.textColorSecondary,
+    backgroundColor: (palette: PaletteType): string => palette.textColorSecondary,
   },
   noItems: {
     padding: 5,

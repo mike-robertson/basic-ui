@@ -2,8 +2,9 @@
 import React, { PureComponent, PropTypes } from 'react';
 import classnames from 'classnames';
 import { v4 as uuid } from 'uuid';
-import injectSheet from 'react-jss';
-import theme from '../themes';
+
+
+import { injectSheet } from '../themes';
 
 
 export const styles = {
@@ -15,19 +16,19 @@ export const styles = {
     justifyContent: 'flex-end',
 
     '& > label': {
-      color: theme.palette.textColorPrimary,
+      color: (palette: PaletteType): string => palette.textColorPrimary,
       textTransform: 'uppercase',
       order: -5,
-      transition: theme.palette.transition,
+      transition: (palette: PaletteType): string => palette.transition,
     },
 
     '& > *:first-child': {
-      transition: theme.palette.transition,
+      transition: (palette: PaletteType): string => palette.transition,
       '&:focus': {
-        borderColor: theme.palette.interactiveFocusBorderColor,
+        borderColor: (palette: PaletteType): string => palette.interactiveFocusBorderColor,
       },
       '&:focus ~ label': {
-        color: theme.palette.interactiveFocusBorderColor,
+        color: (palette: PaletteType): string => palette.interactiveFocusBorderColor,
       },
     },
   },

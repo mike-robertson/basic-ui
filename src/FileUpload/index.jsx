@@ -1,6 +1,10 @@
 import React, { PropTypes } from 'react';
+
 // import classnames from 'classnames';
+
 import injectSheet from 'react-jss';
+// import { injectSheet } from '../themes';
+
 
 import LabeledItem from '../LabeledItem';
 
