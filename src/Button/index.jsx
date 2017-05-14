@@ -1,9 +1,8 @@
 // @flow
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
-import injectSheet from 'react-jss';
+import { injectSheet } from '../themes';
 import ButtonLoading from '../Icons/ButtonLoading';
-import theme from '../themes';
 
 type PropsType = {
   onClick: void,
@@ -54,12 +53,12 @@ export const styles = {
   container: {
     outline: 'none',
     fontSize: 16,
-    backgroundColor: theme.palette.interactiveBGC,
-    color: theme.palette.textColorPrimary,
-    border: theme.palette.border,
+    backgroundColor: ({ theme }: Theme) => theme.interactiveBGC,
+    color: ({ theme }: Theme) => theme.textColorPrimary,
+    border: ({ theme }: Theme) => theme.border,
     cursor: 'pointer',
-    padding: theme.palette.buttonPadding,
-    transition: theme.palette.transition,
+    padding: ({ theme }: Theme) => theme.buttonPadding,
+    transition: ({ theme }: Theme) => theme.transition,
     textTransform: 'uppercase',
     fontWeight: 700,
     justifyContent: 'center',
@@ -67,13 +66,13 @@ export const styles = {
     textAlign: 'center',
 
     '&:hover': {
-      backgroundColor: theme.palette.interactiveHoverBGC,
-      borderColor: theme.palette.interactiveHoverBorderColor,
-      color: theme.palette.interactiveHoverColor,
+      backgroundColor: ({ theme }: Theme) => theme.interactiveHoverBGC,
+      borderColor: ({ theme }: Theme) => theme.interactiveHoverBorderColor,
+      color: ({ theme }: Theme) => theme.interactiveHoverColor,
     },
 
     '&:active': {
-      backgroundColor: theme.palette.interactiveActiveBGC,
+      backgroundColor: ({ theme }: Theme) => theme.interactiveActiveBGC,
     },
   },
 };

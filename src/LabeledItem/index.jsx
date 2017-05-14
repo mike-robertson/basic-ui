@@ -2,8 +2,8 @@
 import React, { PureComponent, PropTypes } from 'react';
 import classnames from 'classnames';
 import { v4 as uuid } from 'uuid';
-import injectSheet from 'react-jss';
-import theme from '../themes';
+import { injectSheet } from '../themes';
+
 
 export const styles = {
   container: {
@@ -14,19 +14,19 @@ export const styles = {
     justifyContent: 'flex-end',
 
     '& > label': {
-      color: theme.palette.textColorPrimary,
+      color: ({ theme }: Theme) => theme.textColorPrimary,
       textTransform: 'uppercase',
       order: -5,
-      transition: theme.palette.transition,
+      transition: ({ theme }: Theme) => theme.transition,
     },
 
     '& > *:first-child': {
-      transition: theme.palette.transition,
+      transition: ({ theme }: Theme) => theme.transition,
       '&:focus': {
-        borderColor: theme.palette.interactiveFocusBorderColor,
+        borderColor: ({ theme }: Theme) => theme.interactiveFocusBorderColor,
       },
       '&:focus ~ label': {
-        color: theme.palette.interactiveFocusBorderColor,
+        color: ({ theme }: Theme) => theme.interactiveFocusBorderColor,
       },
     },
   },

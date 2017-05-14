@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-import theme from '../themes';
+
 
 const Loading = ({ className, ...rest }) => (
   <svg
@@ -9,7 +9,7 @@ const Loading = ({ className, ...rest }) => (
     width="24px" height="30px" viewBox="0 0 24 30" style={{ enableBackground: 'new 0 0 50 50' }}
     {...rest}
   >
-    <rect x="0" y="0" width="4" height="10" fill={theme.palette.textColorPrimary}>
+    <rect x="0" y="0" width="4" height="10" fill={({ theme }) => theme.textColorPrimary}>
       <animateTransform
         attributeType="xml"
         attributeName="transform" type="translate"
@@ -17,7 +17,7 @@ const Loading = ({ className, ...rest }) => (
         begin="0" dur="0.6s" repeatCount="indefinite"
       />
     </rect>
-    <rect x="10" y="0" width="4" height="10" fill={theme.palette.textColorPrimary}>
+    <rect x="10" y="0" width="4" height="10" fill={({ theme }) => theme.textColorPrimary}>
       <animateTransform
         attributeType="xml"
         attributeName="transform" type="translate"
@@ -25,7 +25,7 @@ const Loading = ({ className, ...rest }) => (
         begin="0.2s" dur="0.6s" repeatCount="indefinite"
       />
     </rect>
-    <rect x="20" y="0" width="4" height="10" fill={theme.palette.textColorPrimary}>
+    <rect x="20" y="0" width="4" height="10" fill={({ theme }) => theme.textColorPrimary}>
       <animateTransform
         attributeType="xml"
         attributeName="transform" type="translate"

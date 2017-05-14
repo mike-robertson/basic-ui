@@ -1,9 +1,13 @@
 Message:
 ```
-<ErrorMessage message="There was an error!" error={true} />
+<DefaultTheme>
+  <ErrorMessage message="There was an error!" error={true} />
+</DefaultTheme>
 ```
 
 Error object:
 ```
-<ErrorMessage error={{ error: 'some value' }} />
+<DefaultTheme>
+  <ErrorMessage error={{ error: 'some value' }} />
+</DefaultTheme>
 ```

@@ -2,17 +2,17 @@
 
 import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
-import injectSheet from 'react-jss';
+import { injectSheet } from '../themes';
 
-import theme from '../themes';
+
 import ExpandableContainerHeader from '../ExpandableContainerHeader';
 
 export const styles = {
   container: {
     position: 'relative',
-    color: theme.palette.textColorPrimary,
+    color: ({ theme }: Theme) => theme.textColorPrimary,
     width: '100%',
-    borderBottom: theme.palette.border,
+    borderBottom: ({ theme }: Theme) => theme.border,
   },
   hide: {
     display: 'none',

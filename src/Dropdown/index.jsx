@@ -1,11 +1,11 @@
 // @flow
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
-import injectSheet from 'react-jss';
+import { injectSheet } from '../themes';
 
 import DropdownItem from '../DropdownItem';
 import DropdownGroup from '../DropdownGroup';
-import theme from '../themes';
+
 
 const dropdownItemFactory = onClick =>
   item => <DropdownItem item={item} key={item.id} onClick={onClick} />;
@@ -60,21 +60,21 @@ Dropdown.propTypes = {
 const styles = {
   container: {
     position: 'absolute',
-    width: `calc(100% + ${theme.palette.borderWidth} + ${theme.palette.borderWidth})`,
+    width: ({ theme }: Theme) => `calc(100% + ${theme.borderWidth} + ${theme.borderWidth})`,
     left: 0,
-    top: `calc(100% + ${theme.palette.borderWidth})`,
+    top: ({ theme }: Theme) => `calc(100% + ${theme.borderWidth})`,
     fontSize: '1em',
     maxHeight: 300,
     overflowY: 'auto',
-    border: theme.palette.border,
+    border: ({ theme }: Theme) => theme.border,
     borderTop: 'none',
-    marginLeft: `-${theme.palette.borderWidth}`,
+    marginLeft: ({ theme }: Theme) => `-${theme.borderWidth}`,
     overflowX: 'hidden',
-    paddingRight: `calc(${theme.palette.borderWidth} + ${theme.palette.borderWidth})`,
+    paddingRight: ({ theme }: Theme) => `calc(${theme.borderWidth} + ${theme.borderWidth})`,
     boxSizing: 'border-box',
     overflowWrap: 'break-word',
     zIndex: 1,
-    backgroundColor: theme.palette.textColorSecondary,
+    backgroundColor: ({ theme }: Theme) => theme.textColorSecondary,
   },
   noItems: {
     padding: 5,

@@ -2,25 +2,24 @@
 
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
-import injectSheet from 'react-jss';
+import { injectSheet } from '../themes';
 
-import theme from '../themes';
 
 export const styles = {
   container: {
-    padding: theme.palette.tableCellPadding,
-    borderBottom: theme.palette.border,
-    borderTop: theme.palette.border,
-    borderLeft: theme.palette.dashedBorder,
-    borderRight: theme.palette.dashedBorder,
+    padding: ({ theme }: Theme) => theme.tableCellPadding,
+    borderBottom: ({ theme }: Theme) => theme.border,
+    borderTop: ({ theme }: Theme) => theme.border,
+    borderLeft: ({ theme }: Theme) => theme.dashedBorder,
+    borderRight: ({ theme }: Theme) => theme.dashedBorder,
     textTransform: 'uppercase',
     userSelect: 'none',
   },
   asc: {
-    color: theme.palette.colorSuccess,
+    color: ({ theme }: Theme) => theme.colorSuccess,
   },
   desc: {
-    color: theme.palette.colorDanger,
+    color: ({ theme }: Theme) => theme.colorDanger,
   },
   sortable: {
     cursor: 'pointer',

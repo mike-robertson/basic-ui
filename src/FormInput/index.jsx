@@ -1,8 +1,8 @@
 // @flow
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
-import injectSheet from 'react-jss';
-import theme from '../themes';
+import { injectSheet } from '../themes';
+
 import LabeledItem from '../LabeledItem';
 
 export const styles = {
@@ -11,9 +11,9 @@ export const styles = {
   },
   input: {
     outline: 'none',
-    backgroundColor: theme.palette.interactiveBGC,
-    color: theme.palette.textColorPrimary,
-    border: theme.palette.border,
+    backgroundColor: ({ theme }: Theme) => theme.interactiveBGC,
+    color: ({ theme }: Theme) => theme.textColorPrimary,
+    border: ({ theme }: Theme) => theme.border,
     padding: '0.4em',
     fontSize: '1.2em',
   },

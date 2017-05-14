@@ -1,12 +1,18 @@
 isLoading = true
 ```
-<LoadingText isLoading={true}>{undefined}</LoadingText>
+<DefaultTheme>
+  <LoadingText isLoading={true}>{undefined}</LoadingText>
+</DefaultTheme>
 ```
 isError = true
 ```
-<LoadingText isError={true}>Test</LoadingText>
+<DefaultTheme>
+  <LoadingText isError={true}>Test</LoadingText>
+</DefaultTheme>
 ```
 isLoading = false && isError = false
 ```
-<LoadingText isError={false} isLoading={false}>Async call result child</LoadingText>
+<DefaultTheme>
+  <LoadingText isError={false} isLoading={false}>Async call result child</LoadingText>
+</DefaultTheme>
 ```

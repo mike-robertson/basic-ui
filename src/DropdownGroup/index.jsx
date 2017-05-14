@@ -1,8 +1,8 @@
 import React, { PureComponent, PropTypes } from 'react';
 import classnames from 'classnames';
-import injectSheet from 'react-jss';
+import { injectSheet } from '../themes';
 
-import theme from '../themes';
+
 import DropdownItem from '../DropdownItem';
 
 class DropdownGroup extends PureComponent {
@@ -36,13 +36,13 @@ DropdownGroup.propTypes = {
 
 export const styles = {
   container: {
-    backgroundColor: theme.palette.backgroundColorDropdown,
-    color: theme.palette.colorDropdown,
+    backgroundColor: ({ theme }) => theme.backgroundColorDropdown,
+    color: ({ theme }) => theme.colorDropdown,
     cursor: 'auto',
     borderBottom: 'none',
 
     '&:hover': {
-      backgroundColor: theme.palette.backgroundColorDropdown,
+      backgroundColor: ({ theme }) => theme.backgroundColorDropdown,
     },
   },
 };

@@ -1,3 +1,5 @@
 ```
-<Button>Button</Button>
+<DefaultTheme>
+  <Button>Button</Button>
+</DefaultTheme>
 ```

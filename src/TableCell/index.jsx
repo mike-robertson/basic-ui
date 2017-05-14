@@ -1,15 +1,15 @@
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
-import injectSheet from 'react-jss';
-import theme from '../themes';
+import { injectSheet } from '../themes';
+
 
 export const styles = {
   container: {
-    padding: theme.palette.tableCellPadding,
-    borderBottom: theme.palette.border,
-    borderTop: theme.palette.border,
-    borderLeft: theme.palette.dashedBorder,
-    borderRight: theme.palette.dashedBorder,
+    padding: ({ theme }) => theme.tableCellPadding,
+    borderBottom: ({ theme }) => theme.border,
+    borderTop: ({ theme }) => theme.border,
+    borderLeft: ({ theme }) => theme.dashedBorder,
+    borderRight: ({ theme }) => theme.dashedBorder,
     textAlign: 'center',
   },
 };
