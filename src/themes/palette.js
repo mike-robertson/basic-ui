@@ -1,3 +1,4 @@
+export const backgroundColorPrimary = '#FFF';
 export const textColorPrimary = '#212020';
 export const textColorSecondary = '#F5F5F5';
 

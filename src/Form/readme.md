@@ -1,3 +1,7 @@
+Normally, `onSubmit` will look like this: `(event) => void`
+If `onSubmitSuccess: () => void` is included, then `onSubmit`'s signature should look like this:
+`(onSubmitSuccess) => (event) => void`
+
 ```
 <DefaultTheme>
   <Form onSumbit={function(e) {

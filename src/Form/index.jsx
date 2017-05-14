@@ -3,7 +3,6 @@ import classnames from 'classnames';
 import { injectSheet } from '../themes';
 
 
-
 export const styles = {
   fieldset: {
     width: 'fit-content',
@@ -33,8 +32,11 @@ export const styles = {
   },
 };
 
-const Form = ({ children, classes, onSubmit, disabled, className }) => (
-  <form onSubmit={onSubmit} className={classnames(className, classes.fieldset)}>
+const Form = ({ children, classes, onSubmit, disabled, className, onSubmitSuccess }) => (
+  <form
+    onSubmit={onSubmitSuccess ? onSubmit(onSubmitSuccess) : onSubmit}
+    className={classnames(className, classes.fieldset)}
+  >
     <fieldset disabled={disabled && 'disabled'}>
       {children}
     </fieldset>
@@ -44,6 +46,7 @@ const Form = ({ children, classes, onSubmit, disabled, className }) => (
 Form.propTypes = {
   children: PropTypes.node.isRequired,
   onSubmit: PropTypes.func.isRequired,
+  onSubmitSuccess: PropTypes.func,
   disabled: PropTypes.bool,
   className: PropTypes.string,
 };

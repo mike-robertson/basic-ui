@@ -35,7 +35,7 @@
       "objects": "always-multiline",
       "imports": "always-multiline",
       "exports": "always-multiline",
-      "functions": "never"
+      "functions": "always-multiline"
     }],
     "max-len": ["error", 150],
     "no-confusing-arrow": 0,
