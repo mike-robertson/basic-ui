@@ -1,16 +1,6 @@
 # Basic UI Components
 
-Currently in development.
+Currently in development. Docs are a work in progress.
 
-## Components
-
-* Button
-* Container
-* Error
-* ExpandableContainer
-* Form
-* FormGroup
-* FormInput
-* LoadingText
-* SuccessMessage
-* More to come
+Documentation:
+https://basic-ui.github.io/
