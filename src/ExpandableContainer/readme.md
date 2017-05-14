@@ -1,9 +1,11 @@
 ```
-<ExpandableContainer
-  title="Test Container"
->
-  <div>Hello World!</div>
-  <div>Hello World!</div>
-  <div>Hello World!</div>
-</ExpandableContainer>
+<DefaultTheme>
+  <ExpandableContainer
+    title="Test Container"
+  >
+    <div>Hello World!</div>
+    <div>Hello World!</div>
+    <div>Hello World!</div>
+  </ExpandableContainer>
+</DefaultTheme>
 ```

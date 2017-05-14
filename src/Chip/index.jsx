@@ -1,10 +1,8 @@
 // @flow
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
-import injectSheet from 'react-jss';
+import { injectSheet } from '../themes';
 import ExIcon from '../Icons/Ex';
-
-import theme from '../themes';
 
 type PropsType = {
   classes: Object,
@@ -37,8 +35,8 @@ Chip.propTypes = {
 
 const styles = {
   container: {
-    backgroundColor: theme.palette.backgroundColorDropdown,
-    color: theme.palette.colorDropdown,
+    backgroundColor: ({ theme }: Theme) => theme.backgroundColorDropdown,
+    color: ({ theme }: Theme) => theme.colorDropdown,
     padding: '5px 10px',
     alignItems: 'center',
     borderRadius: 15,
@@ -52,11 +50,11 @@ const styles = {
     alignItems: 'center',
   },
   ex: {
-    fill: theme.palette.colorDropdown,
+    fill: ({ theme }: Theme) => theme.colorDropdown,
     cursor: 'pointer',
 
     '&:hover': {
-      fill: theme.palette.colorDanger,
+      fill: ({ theme }: Theme) => theme.colorDanger,
     },
   },
 };

@@ -1,3 +1,5 @@
 ```
-<SuccessMessage flag={true} message="Success!" />
+<DefaultTheme>
+  <SuccessMessage flag={true} message="Success!" />
+</DefaultTheme>
 ```

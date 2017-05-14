@@ -1,37 +1,37 @@
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
-import injectSheet from 'react-jss';
+import { injectSheet } from '../themes';
 
-import theme from '../themes';
+
 
 import Button from '../Button';
 
 export const styles = {
   button: {
-    borderColor: theme.palette.submitFocusBorderColor,
-    color: theme.palette.submitFocusBorderColor,
+    borderColor: ({ theme }) => theme.submitFocusBorderColor,
+    color: ({ theme }) => theme.submitFocusBorderColor,
     fontSize: 16,
     width: '100%',
 
     '& svg': {
-      fill: theme.palette.submitFocusBorderColor,
+      fill: ({ theme }) => theme.submitFocusBorderColor,
       '& *': {
-        fill: theme.palette.submitFocusBorderColor,
+        fill: ({ theme }) => theme.submitFocusBorderColor,
       },
     },
 
     '&:hover': {
-      borderColor: theme.palette.submitFocusBorderColor,
-      color: theme.palette.submitFocusBorderColor,
-      backgroundColor: theme.palette.submitFocusBackgroundColor,
+      borderColor: ({ theme }) => theme.submitFocusBorderColor,
+      color: ({ theme }) => theme.submitFocusBorderColor,
+      backgroundColor: ({ theme }) => theme.submitFocusBackgroundColor,
     },
 
     '&:focus': {
-      backgroundColor: theme.palette.submitFocusBackgroundColor,
+      backgroundColor: ({ theme }) => theme.submitFocusBackgroundColor,
     },
 
     '&:active': {
-      backgroundColor: theme.palette.submitFocusBorderColor,
+      backgroundColor: ({ theme }) => theme.submitFocusBorderColor,
     },
   },
 };

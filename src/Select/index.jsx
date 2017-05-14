@@ -3,14 +3,14 @@
 import React, { Component, PropTypes } from 'react';
 
 import classnames from 'classnames';
-import injectSheet from 'react-jss';
+import { injectSheet } from '../themes';
 import fuzzy from 'fuzzy';
 
 import LabeledItem from '../LabeledItem';
 import Chip from '../Chip';
 import Dropdown from '../Dropdown';
 import { styles as stylesTextInput } from '../FormInput';
-import theme from '../themes';
+
 
 const zIndexCounter = {
   value: 1000,
@@ -278,16 +278,16 @@ export const styles = {
     border: 0,
     fontSize: '1em',
     backgroundColor: 'rgba(0, 0, 0, 0)',
-    color: theme.palette.textColorPrimary,
+    color: ({ theme }: Theme) => theme.textColorPrimary,
   },
   inputItem: {
     margin: '0.2em',
   },
   focused: {
-    transition: theme.palette.transition,
-    borderColor: theme.palette.interactiveFocusBorderColor,
+    transition: ({ theme }: Theme) => theme.transition,
+    borderColor: ({ theme }: Theme) => theme.interactiveFocusBorderColor,
     '& ~ label': {
-      color: theme.palette.interactiveFocusBorderColor,
+      color: ({ theme }: Theme) => theme.interactiveFocusBorderColor,
     },
   },
 };

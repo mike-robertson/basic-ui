@@ -1,15 +1,8 @@
-import * as palette from './darkPalette';
+import { PropTypes } from 'react';
+import { compose, getContext } from 'recompose';
+import jssInjectSheet from 'react-jss';
 
-const themeStore = {
-  init(palette) {
-    this.palette = palette;
-  },
-  setPalette(newPalette) {
-    this.palette = newPalette;
-  },
-};
-
-const theme = Object.create(themeStore);
-theme.init(palette);
-
-export default theme;
+export const injectSheet = sheet => compose(
+  getContext({ theme: PropTypes.object }),
+  jssInjectSheet(sheet)
+);

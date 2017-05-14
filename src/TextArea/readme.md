@@ -1,3 +1,5 @@
 ```
-<TextArea label="Text Area" />
+<DefaultTheme>
+  <TextArea label="Text Area" />
+</DefaultTheme>
 ```

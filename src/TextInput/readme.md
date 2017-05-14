@@ -1,3 +1,5 @@
 ```
-<TextInput label="Input" />
+<DefaultTheme>
+  <TextInput label="Input" />
+</DefaultTheme>
 ```

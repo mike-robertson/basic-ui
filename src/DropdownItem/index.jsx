@@ -1,8 +1,8 @@
 import React, { PureComponent, PropTypes } from 'react';
 import classnames from 'classnames';
-import injectSheet from 'react-jss';
+import { injectSheet } from '../themes';
 
-import theme from '../themes';
+
 
 class DropdownItem extends PureComponent {
   render() {
@@ -36,10 +36,10 @@ export const styles = {
     width: '100%',
     padding: 5,
     cursor: 'pointer',
-    borderBottom: theme.palette.dashedBorder,
+    borderBottom: ({ theme }) => theme.dashedBorder,
 
     '&:hover': {
-      backgroundColor: theme.palette.lightHoverBackgroundColor,
+      backgroundColor: ({ theme }) => theme.lightHoverBackgroundColor,
     },
 
     '&:last-child': {

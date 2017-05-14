@@ -2,17 +2,17 @@
 
 import React, { PureComponent, PropTypes } from 'react';
 import classnames from 'classnames';
-import injectSheet from 'react-jss';
+import { injectSheet } from '../themes';
 
 import TableHeaderCell from '../TableHeaderCell';
 import TableRow from '../TableRow';
-import theme from '../themes';
+
 
 export const styles = {
   container: {
-    border: theme.palette.border,
+    border: ({ theme }: Theme) => theme.border,
     borderCollapse: 'collapse',
-    color: theme.palette.textColorPrimary,
+    color: ({ theme }: Theme) => theme.textColorPrimary,
   },
 };
 
