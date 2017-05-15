@@ -18,6 +18,7 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     zIndex: 999999,
+    animation: 'basic-ui-fade-in 300ms',
   },
   container: {
     display: 'flex',
@@ -51,6 +52,14 @@ const styles = {
   },
   hide: {
     display: 'none',
+  },
+  '@keyframes basic-ui-fade-in': {
+    from: {
+      opacity: 0,
+    },
+    to: {
+      opacity: 1,
+    },
   },
 };
 
